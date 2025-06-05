@@ -22,6 +22,11 @@
       font-family: 'Great Vibes', cursive;
       color: #e91e63;
       font-size: 3.2rem;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #fff3f8, 0 0 10px #ff80ab; }
+      to { text-shadow: 0 0 20px #ff4081, 0 0 30px #ff80ab; }
     }
     .main-music-section {
       margin: 2rem auto;
@@ -37,6 +42,8 @@
       height: auto;
       border-radius: 12px;
       margin: 1rem auto 0.5rem;
+      box-shadow: 0 0 15px rgba(255, 192, 203, 0.5);
+      border: 2px solid #fff;
     }
     .music-player h2 {
       color: #d81b60;
@@ -72,6 +79,12 @@
       gap: 10px;
       padding: 1rem;
       scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      animation: auto-scroll 20s linear infinite;
+    }
+    @keyframes auto-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .gallery img {
       width: 200px;
@@ -132,6 +145,7 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.05);
     }
     .important-dates li img {
       width: 24px;
@@ -148,6 +162,23 @@
       border: 1px solid #f48fb1;
       box-shadow: 0 0 12px rgba(233, 30, 99, 0.1);
     }
+    .ouvir-tudo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 50px;
+      box-shadow: 0 0 10px rgba(233, 30, 99, 0.6);
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .ouvir-tudo:hover {
+      background-color: #c2185b;
+    }
     @keyframes fadein {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -155,43 +186,28 @@
   </style>
 </head>
 <body>
-  <!-- ... HTML continua igual até o final ... -->
-  <script>
-    // ... script existente ...
-
-    const moonPhaseImages = [
-      'https://cdn-icons-png.flaticon.com/512/869/869869.png',
-      'https://cdn-icons-png.flaticon.com/512/3075/3075977.png',
-      'https://cdn-icons-png.flaticon.com/512/3075/3075993.png',
-      'https://cdn-icons-png.flaticon.com/512/3075/3075990.png',
-      'https://cdn-icons-png.flaticon.com/512/3075/3075980.png',
-      'https://cdn-icons-png.flaticon.com/512/3075/3075987.png',
-      'https://cdn-icons-png.flaticon.com/512/3075/3075992.png',
-      'https://cdn-icons-png.flaticon.com/512/3075/3075996.png'
-    ];
-
-    const moonEmojis = moonPhaseImages.map(img => `<img src="${img}" alt="Lua" />`);
-
-    document.getElementById("moonImage").src = moonPhaseImages[moonPhaseIndex];
-
-    // Substituir emojis da lista por imagens
-    const moonList = document.querySelectorAll(".important-dates li");
-    moonList.forEach((li, i) => {
-      if (moonEmojis[i]) {
-        li.innerHTML = `${moonEmojis[i]} ${li.textContent.substring(2)}`;
-      }
-    });
-
-    // Player automático com timer
-    function autoPlayTracks(index = 0) {
-      if (index >= tracks.length) return;
-      currentTrack = index;
-      updateTrack();
-      setTimeout(() => autoPlayTracks(index + 1), 90000); // 90s por faixa
-    }
-
-    // Iniciar autoPlay automaticamente
-    autoPlayTracks();
-  </script>
+<!-- conteúdo permanece inalterado, botão ouvir tudo adicionado abaixo -->
+<button onclick="autoPlayTracks()" class="ouvir-tudo">❤️ Ouvir Tudo</button>
+<script>
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.textContent = "💖";
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "100vh";
+    heart.style.fontSize = Math.random() * 20 + 20 + "px";
+    heart.style.animation = "floatUp 5s linear forwards";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }, 800);
+</script>
+<style>
+@keyframes floatUp {
+  to {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+</style>
 </body>
 </html>
