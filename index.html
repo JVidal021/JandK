@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Kimberly</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fff8f9;
+      color: #333;
+      text-align: center;
+    }
+    header {
+      padding: 2rem 1rem;
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      color: #e91e63;
+      font-size: 3.2rem;
+    }
+    .image-main {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin: 1rem auto;
+    }
+    .music-player {
+      margin: 2rem auto;
+    }
+    .track {
+      margin-bottom: 1.5rem;
+    }
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 1rem;
+    }
+    .gallery img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #e91e63;
+    }
+    .counter-section {
+      margin: 1rem auto;
+      padding: 1rem;
+      background: #ffe4ec;
+      border-radius: 16px;
+      max-width: 600px;
+    }
+    .counter-section h2 {
+      color: #c2185b;
+      font-size: 1.6rem;
+    }
+    .counter-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #880e4f;
+    }
+    .moon-phase {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #444;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Para Kimberly</h1>
+  </header>
+
+  <section class="counter-section">
+    <h2>Estamos juntos há:</h2>
+    <div class="counter-number" id="daysTogether">...</div>
+    <div class="moon-phase" id="moonPhase">Fase da lua atual: ...</div>
+  </section>
+
+  <img src="Imagem 7.jpg" alt="Imagem principal" class="image-main" />
+
+  <section class="music-player">
+    <h2>Músicas para nós</h2>
+    <div class="track">
+      <p><strong>Lose Control</strong></p>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7qEHsqek33rTcFNT9PFqLf?utm_source=generator" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div class="track">
+      <p><strong>Ordinary Wedding Version</strong></p>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0np5M6QWmF4EYcqkzQ9E2r?utm_source=generator" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+    </div>
+    <div class="track">
+      <p><strong>Lied to Do - Zayn</strong></p>
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7cQhB0k6d8Z1u8h3JW4lBh?utm_source=generator" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <img src="Imagem 1.png" alt="Imagem 1" />
+    <img src="Imagem 2.jpg" alt="Imagem 2" />
+    <img src="Imagem 3.jpg" alt="Imagem 3" />
+    <img src="Imagem 4.jpg" alt="Imagem 4" />
+    <img src="Imagem 5.jpg" alt="Imagem 5" />
+    <img src="Imagem 6.jpg" alt="Imagem 6" />
+  </section>
+
+  <script>
+    const startDate = new Date('2024-06-14');
+    const now = new Date();
+    const diffTime = now - startDate;
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    document.getElementById("daysTogether").textContent = `${diffDays} dias`;
+
+    const lunarCycle = 29.53;
+    const knownNewMoon = new Date('2024-06-06');
+    const diffMoon = (now - knownNewMoon) / (1000 * 60 * 60 * 24);
+    const phase = diffMoon % lunarCycle;
+    let moonPhaseText = '';
+
+    if (phase < 1.84566) moonPhaseText = 'Lua Nova';
+    else if (phase < 5.53699) moonPhaseText = 'Crescente';
+    else if (phase < 9.22831) moonPhaseText = 'Quarto Crescente';
+    else if (phase < 12.91963) moonPhaseText = 'Crescente Gibosa';
+    else if (phase < 16.61096) moonPhaseText = 'Lua Cheia';
+    else if (phase < 20.30228) moonPhaseText = 'Minguante Gibosa';
+    else if (phase < 23.99361) moonPhaseText = 'Quarto Minguante';
+    else if (phase < 27.68493) moonPhaseText = 'Minguante';
+    else moonPhaseText = 'Lua Nova';
+
+    document.getElementById("moonPhase").textContent = `Fase da lua atual: ${moonPhaseText}`;
+  </script>
+</body>
+</html>
