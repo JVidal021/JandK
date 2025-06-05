@@ -2,232 +2,155 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para Kimberly</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
+  <title>Para Kimberly ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background: url('https://wallpapers.com/images/hd/your-name-sky-anime-aesthetic-vz5smq5dw79p3nsm.jpg') no-repeat center center fixed;
-      background-size: cover;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
       color: #333;
       text-align: center;
-      overflow-x: hidden;
     }
     header {
-      padding: 2rem 1rem;
+      background-color: #fff;
+      padding: 20px;
     }
     h1 {
       font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
       color: #e91e63;
-      font-size: 3.2rem;
     }
-    .main-music-section {
-      margin: 2rem auto;
-      padding: 1rem;
-      background-color: rgba(255, 248, 249, 0.9);
-      border-radius: 20px;
+    .main-image {
+      width: 90%;
       max-width: 600px;
-    }
-    .image-main {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 12px;
-      border: 2px solid #fff;
-    }
-    .music-player {
-      margin-top: 1rem;
+      border-radius: 20px;
+      margin: 20px auto;
     }
     .gallery {
       display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      gap: 10px;
-      padding: 1rem;
-      animation: fadeIn 2s ease-in-out;
-    }
-    .gallery img {
-      width: 200px;
-      border-radius: 12px;
-      border: 2px solid #e91e63;
-      scroll-snap-align: center;
-      flex-shrink: 0;
-      transition: transform 0.3s ease;
-    }
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
-    .counter-section, .important-dates, .love-message {
-      max-width: 600px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.85);
-      border-radius: 16px;
-    }
-    .moon-phase img {
-      width: 60px;
-    }
-    .important-dates li {
-      margin: 0.5rem 0;
-      display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
-      border: 1px solid #e91e63;
-      border-radius: 8px;
-      padding: 6px;
-      background: #fff0f5;
+      margin: 20px;
     }
-    .ouvir-tudo {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #e91e63;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      font-size: 1rem;
-      border-radius: 50px;
-      box-shadow: 0 0 10px rgba(233, 30, 99, 0.6);
-      cursor: pointer;
-      z-index: 1000;
+    .gallery img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
     }
-    .nav-buttons button {
-      background-color: #e91e63;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 10px 16px;
-      margin: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
+    .audio-section {
+      margin: 30px;
     }
-    .nav-buttons button:hover {
-      background-color: #c2185b;
+    audio {
+      display: block;
+      margin: 10px auto;
     }
-    .heart {
-      position: fixed;
-      color: #e91e63;
-      animation: float 6s infinite;
+    .love-text {
+      font-family: 'Great Vibes', cursive;
       font-size: 1.5rem;
-      z-index: 999;
+      margin: 40px 20px;
+      color: #c2185b;
     }
-    @keyframes float {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-800px) scale(1.5);
-        opacity: 0;
-      }
+    .contador-lua {
+      margin-top: 40px;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .contador {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    .moon-phase {
+      max-width: 150px;
+      margin: 0 auto 20px;
+    }
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+      padding: 20px;
+    }
+    .calendar-day {
+      padding: 10px;
+      background-color: #fff5f8;
+      border: 1px solid #f8bbd0;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .calendar-day:hover {
+      background-color: #fce4ec;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>O primeiro ano de uma história sem fim</h1>
-    <p>Lhe dedico esta página como forma de eternizar o nosso primeiro ano</p>
-    <p style="color:#c2185b; font-weight:bold;">"Nunca um sem o outro"</p>
-  </header>  <section class="main-music-section">
-    <img src="./images/imagem7.jpg" class="image-main" alt="Imagem Principal">
-    <div class="music-player">
-      <h2>Nosso Som</h2>
-      <iframe id="spotifyPlayer" style="width:100%; height:152px; border:none; border-radius:12px" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen loading="lazy" src="https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk"></iframe>
-      <div class="nav-buttons">
-        <button onclick="trocarMusica(-1)">Anterior</button>
-        <button onclick="trocarMusica(1)">Próxima</button>
-      </div>
-    </div>
-  </section>  <section class="gallery">
-    <img src="./images/imagem1.png" alt="Imagem 1">
-    <img src="./images/imagem2.jpg" alt="Imagem 2">
-    <img src="./images/imagem3.jpg" alt="Imagem 3">
-    <img src="./images/imagem4.jpg" alt="Imagem 4">
-    <img src="./images/imagem5.jpg" alt="Imagem 5">
-    <img src="./images/imagem6.jpg" alt="Imagem 6">
-  </section>  <section class="counter-section">
-    <h2>Estamos juntos há:</h2>
-    <div id="contador" style="font-size: 2rem; font-weight: bold; color:#880e4f;"></div>
-    <div class="moon-phase">
-      <img id="moonPhaseImage" src="" alt="Fase da Lua">
-    </div>
-  </section>  <section class="important-dates">
-    <h2>Datas Importantes</h2>
-    <ul id="importantDates">
-      <li data-date="2024-06-14">14 de junho de 2024 - Início do namoro</li>
-      <li data-date="2024-08-10">10 de agosto de 2024 - Primeiro encontro</li>
-      <li data-date="2024-08-11">11 de agosto de 2024 - Primeira foto juntos</li>
-      <li data-date="2024-11-14">14 de novembro de 2024 - Aniversário dela</li>
-      <li data-date="2024-11-20">20 de novembro de 2024 - Aniversário dele</li>
-      <li data-date="2024-12-25">25 de dezembro de 2024 - Passamos a morar juntos</li>
-      <li data-date="2025-06-14">14 de junho de 2025 - 1 ano de amor</li>
-    </ul>
-  </section>  <section class="love-message">
-    <p>Enfim, chegamos ao momento pelo qual tanto esperávamos. Apesar das adversidades, completamos nosso primeiro ano. Houve obstáculos, dúvidas, mágoas e todos os sentimentos imagináveis, mas acima de todos eles, o amor e a cumplicidade prevaleceram. É incrível notar nosso esforço mútuo para fazer dar certo, mesmo sendo tão jovens com um objetivo tão admirável.<br><br>
-    Meu amor, posso não ser o homem perfeito, rico ou o mais atraente, mas o amor que sinto por você me faria capaz de absolutamente qualquer coisa para ver um sorriso nesse rosto. Assim como prometi no início: sempre serei seu, dedicado a nós, melhor a cada dia. Te amarei menos que ontem e mais do que amanhã. 💖</p>
-  </section><button onclick="autoPlayTracks()" class="ouvir-tudo">❤️ Ouvir Tudo</button>
-
-  <script>
-    const inicioRelacionamento = new Date("2024-06-14T00:00:00");
-    const contador = document.getElementById("contador");
-    function atualizarContador() {
-      const agora = new Date();
-      const diff = agora - inicioRelacionamento;
-      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-      contador.textContent = `${dias} dias`;
-    }
-    atualizarContador();
-
-    const moonImage = document.getElementById("moonPhaseImage");
+    <h1>Para Kimberly 💖</h1>
+  </header>  <img src="imagem7.jpg" alt="Imagem principal" class="main-image" />  <div class="gallery">
+    <img src="imagem1.jpg" />
+    <img src="imagem2.jpg" />
+    <img src="imagem3.jpg" />
+    <img src="imagem4.jpg" />
+    <img src="imagem5.jpg" />
+    <img src="imagem6.jpg" />
+    <img src="imagem7.jpg" />
+  </div>  <div class="audio-section">
+    <audio controls>
+      <source src="https://example.com/musica1.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls>
+      <source src="https://example.com/musica2.mp3" type="audio/mpeg">
+    </audio>
+    <audio controls>
+      <source src="https://example.com/musica3.mp3" type="audio/mpeg">
+    </audio>
+  </div>  <div class="love-text">
+    Cada momento contigo é uma lembrança eterna... Obrigado por fazer da minha vida um lugar mais doce, mais colorido e cheio de amor. 💕
+  </div>  <div class="contador-lua">
+    <div class="contador" id="contador-dias"></div>
+    <img id="fase-lua" class="moon-phase" src="" alt="Fase da Lua">
+    <div class="calendar" id="calendario"></div>
+  </div>  <script>
+    const inicioRelacionamento = new Date('2022-02-14');
     const hoje = new Date();
-    const diaJuliano = Math.floor((hoje / 86400000) - (hoje.getTimezoneOffset()/1440) + 2440587.5);
-    const fase = (diaJuliano - 2451550.1) / 29.53058867;
-    const faseIndex = Math.floor((fase - Math.floor(fase)) * 8);
-    const fases = ["new", "waxing_crescent", "first_quarter", "waxing_gibbous", "full", "waning_gibbous", "last_quarter", "waning_crescent"];
-    const faseNome = fases[(faseIndex + 8) % 8];
-    moonImage.src = `https://www.astropixels.com/ephemeris/moon/moon${faseNome}.jpg`;
+    const dias = Math.floor((hoje - inicioRelacionamento) / (1000 * 60 * 60 * 24));
+    document.getElementById('contador-dias').innerText = `Estamos juntos há ${dias} dias! 🌙`;
 
-    document.querySelectorAll('#importantDates li').forEach(item => {
-      const data = new Date(item.dataset.date);
-      const julian = Math.floor((data / 86400000) - (data.getTimezoneOffset()/1440) + 2440587.5);
-      const fase = (julian - 2451550.1) / 29.53058867;
-      const idx = Math.floor((fase - Math.floor(fase)) * 8);
-      const emojiMap = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"];
-      item.innerHTML = `${emojiMap[(idx + 8) % 8]} ${item.innerHTML}`;
-    });
-
-    const tracks = [
-      "6usohdchdzW9oML7VC4Uhk",
-      "1bguAEOqZ6UU6Cnljrgn0t",
-      "4t6qMeHgbxWod2SLokiSQp"
-    ];
-    let currentTrack = 0;
-
-    function trocarMusica(delta) {
-      currentTrack = (currentTrack + delta + tracks.length) % tracks.length;
-      document.getElementById("spotifyPlayer").src = `https://open.spotify.com/embed/track/${tracks[currentTrack]}`;
+    function faseDaLua(data) {
+      const ano = data.getFullYear();
+      const mes = data.getMonth();
+      const dia = data.getDate();
+      const c = Math.floor((ano - 1900) * 12.3685);
+      const e = new Date(ano, mes, dia);
+      const b = Date.UTC(ano, mes, dia) / 1000 / 86400;
+      const d = (b - 25567.5) / 29.53058867;
+      const fase = d % 1;
+      const indice = Math.floor(fase * 8);
+      const fases = ["new", "waxing_crescent", "first_quarter", "waxing_gibbous", "full", "waning_gibbous", "last_quarter", "waning_crescent"];
+      return fases[indice];
     }
 
-    function autoPlayTracks() {
-      document.getElementById("spotifyPlayer").src = `https://open.spotify.com/embed/track/${tracks[currentTrack]}`;
+    function atualizarFase(data) {
+      const fase = faseDaLua(data);
+      document.getElementById('fase-lua').src = `https://www.astropixels.com/ephemeris/moon/moonicon/${fase}.png`;
     }
 
-    // Emojis de coração flutuando
-    setInterval(() => {
-      const heart = document.createElement("div");
-      heart.className = "heart";
-      heart.textContent = "💖";
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.top = "100vh";
-      document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 6000);
-    }, 800);
+    atualizarFase(hoje);
+
+    const calendario = document.getElementById("calendario");
+    const hojeData = new Date();
+    const anoAtual = hojeData.getFullYear();
+    const mesAtual = hojeData.getMonth();
+    const diasNoMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
+
+    for (let d = 1; d <= diasNoMes; d++) {
+      const diaDiv = document.createElement("div");
+      diaDiv.className = "calendar-day";
+      diaDiv.textContent = d;
+      diaDiv.addEventListener("click", () => {
+        const dataSelecionada = new Date(anoAtual, mesAtual, d);
+        atualizarFase(dataSelecionada);
+      });
+      calendario.appendChild(diaDiv);
+    }
   </script></body>
 </html>
