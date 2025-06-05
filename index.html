@@ -132,7 +132,7 @@
   <section class="music-player">
     <h2>Músicas para nós</h2>
     <div class="spotify-player">
-      <iframe id="spotifyFrame" src="https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk?utm_source=generator"></iframe>
+      <iframe id="spotifyFrame" src="about:blank"></iframe>
       <div class="controls">
         <button onclick="prevTrack()">◀ Anterior</button>
         <button onclick="nextTrack()">Próxima ▶</button>
@@ -202,7 +202,7 @@
       "https://open.spotify.com/embed/track/4t6qMeHgbxWod2SLokiSQp",
       "https://open.spotify.com/embed/track/5IgjP7X4th6nMNDh4akUHb"
     ];
-    let currentTrack = 0;
+    let currentTrack = -1;
 
     function updateTrack() {
       const iframe = document.getElementById("spotifyFrame");
@@ -210,14 +210,17 @@
     }
 
     function nextTrack() {
-      currentTrack = (currentTrack + 1) % tracks.length;
+      if (currentTrack < 0) currentTrack = 0;
+      else currentTrack = (currentTrack + 1) % tracks.length;
       updateTrack();
     }
 
     function prevTrack() {
-      currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+      if (currentTrack < 0) currentTrack = tracks.length - 1;
+      else currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
       updateTrack();
     }
   </script>
 </body>
 </html>
+
