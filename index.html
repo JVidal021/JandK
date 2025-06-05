@@ -13,7 +13,6 @@
       background-size: cover;
       color: #333;
       text-align: center;
-      transition: background 1s ease-in-out;
     }
     header {
       padding: 2rem 1rem;
@@ -22,11 +21,6 @@
       font-family: 'Great Vibes', cursive;
       color: #e91e63;
       font-size: 3.2rem;
-      animation: glow 2s ease-in-out infinite alternate;
-    }
-    @keyframes glow {
-      from { text-shadow: 0 0 5px #fff3f8, 0 0 10px #ff80ab; }
-      to { text-shadow: 0 0 20px #ff4081, 0 0 30px #ff80ab; }
     }
     .main-music-section {
       margin: 2rem auto;
@@ -34,133 +28,64 @@
       background-color: rgba(255, 248, 249, 0.9);
       border-radius: 20px;
       max-width: 600px;
-      animation: fadein 2s ease-in;
     }
     .image-main {
-      width: 85%;
+      width: 100%;
       max-width: 300px;
-      height: auto;
       border-radius: 12px;
-      margin: 1rem auto 0.5rem;
-      box-shadow: 0 0 15px rgba(255, 192, 203, 0.5);
       border: 2px solid #fff;
     }
-    .music-player h2 {
-      color: #d81b60;
-      font-size: 1.5rem;
+    .music-player {
+      margin-top: 1rem;
     }
-    .spotify-player iframe {
+    .music-player iframe {
       width: 100%;
       height: 80px;
       border-radius: 12px;
       border: none;
-    }
-    .controls {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 0.5rem;
-    }
-    .controls button {
-      background-color: #e91e63;
-      color: white;
-      border: none;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .controls button:hover {
-      background-color: #c2185b;
+      margin: 0.5rem 0;
+      display: none;
     }
     .gallery {
       display: flex;
       overflow-x: auto;
-      gap: 10px;
-      padding: 1rem;
       scroll-snap-type: x mandatory;
       scroll-behavior: smooth;
-      animation: auto-scroll 20s linear infinite;
-    }
-    @keyframes auto-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      gap: 10px;
+      padding: 1rem;
+      animation: fadeIn 2s ease-in-out;
     }
     .gallery img {
       width: 200px;
-      height: auto;
-      object-fit: cover;
-      border-radius: 8px;
+      border-radius: 12px;
       border: 2px solid #e91e63;
       scroll-snap-align: center;
       flex-shrink: 0;
+      transition: transform 0.3s ease;
     }
-    .counter-section {
-      margin: 1rem auto;
-      padding: 1rem;
-      background: #ffe4ec;
-      border-radius: 16px;
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    .counter-section, .important-dates, .love-message {
       max-width: 600px;
-    }
-    .counter-section h2 {
-      color: #c2185b;
-      font-size: 1.6rem;
-    }
-    .counter-number {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #880e4f;
-    }
-    .moon-phase {
-      margin-top: 0.5rem;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 16px;
     }
     .moon-phase img {
       width: 60px;
-      height: auto;
-    }
-    .important-dates {
-      margin: 2rem auto;
-      padding: 1rem;
-      background-color: #fdeef2;
-      border-radius: 16px;
-      max-width: 600px;
-      border: 2px dashed #e91e63;
-      box-shadow: 0 0 10px rgba(233, 30, 99, 0.2);
-    }
-    .important-dates h2 {
-      color: #d81b60;
-      margin-bottom: 0.5rem;
-    }
-    .important-dates ul {
-      list-style: none;
-      padding: 0;
     }
     .important-dates li {
-      margin: 0.4rem 0;
-      font-size: 1rem;
-      padding: 0.3rem;
-      border-radius: 8px;
-      background: #fff6f9;
-      border: 1px solid #f8bbd0;
+      margin: 0.5rem 0;
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.05);
-    }
-    .important-dates li img {
-      width: 24px;
-      height: 24px;
-    }
-    .love-message {
-      margin: 2rem auto;
-      max-width: 600px;
-      padding: 1rem;
-      background-color: #fff0f5;
-      border-radius: 20px;
-      font-style: italic;
-      font-size: 1.1rem;
-      border: 1px solid #f48fb1;
-      box-shadow: 0 0 12px rgba(233, 30, 99, 0.1);
+      border: 1px solid #e91e63;
+      border-radius: 8px;
+      padding: 6px;
+      background: #fff0f5;
     }
     .ouvir-tudo {
       position: fixed;
@@ -176,38 +101,101 @@
       cursor: pointer;
       z-index: 1000;
     }
-    .ouvir-tudo:hover {
-      background-color: #c2185b;
-    }
-    @keyframes fadein {
+    @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
   </style>
 </head>
 <body>
-<!-- conteúdo permanece inalterado, botão ouvir tudo adicionado abaixo -->
-<button onclick="autoPlayTracks()" class="ouvir-tudo">❤️ Ouvir Tudo</button>
-<script>
-  setInterval(() => {
-    const heart = document.createElement("div");
-    heart.textContent = "💖";
-    heart.style.position = "fixed";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.top = "100vh";
-    heart.style.fontSize = Math.random() * 20 + 20 + "px";
-    heart.style.animation = "floatUp 5s linear forwards";
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), 5000);
-  }, 800);
-</script>
-<style>
-@keyframes floatUp {
-  to {
-    transform: translateY(-120vh);
-    opacity: 0;
-  }
-}
-</style>
+  <header>
+    <h1>O primeiro ano de uma história sem fim</h1>
+    <p>Lhe dedico esta página como forma de eternizar o nosso primeiro ano</p>
+    <p style="color:#c2185b; font-weight:bold;">"Nunca um sem o outro"</p>
+  </header>
+
+  <section class="main-music-section">
+    <img src="./images/Imagem 7.jpg" class="image-main" alt="Imagem Principal">
+    <div class="music-player">
+      <h2>Nosso Som</h2>
+      <iframe id="track1" src="https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk" loading="lazy"></iframe>
+      <iframe id="track2" src="https://open.spotify.com/embed/track/1bguAEOqZ6UU6Cnljrgn0t" loading="lazy"></iframe>
+      <iframe id="track3" src="https://open.spotify.com/embed/track/4t6qMeHgbxWod2SLokiSQp" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <img src="./images/Imagem 1.png" alt="Imagem 1">
+    <img src="./images/Imagem 2.jpg" alt="Imagem 2">
+    <img src="./images/Imagem 3.jpg" alt="Imagem 3">
+    <img src="./images/Imagem 4.jpg" alt="Imagem 4">
+    <img src="./images/Imagem 5.jpg" alt="Imagem 5">
+    <img src="./images/Imagem 6.jpg" alt="Imagem 6">
+  </section>
+
+  <section class="counter-section">
+    <h2>Estamos juntos há:</h2>
+    <div id="contador" style="font-size: 2rem; font-weight: bold; color:#880e4f;"></div>
+    <div class="moon-phase">
+      <img id="moonPhaseImage" src="" alt="Fase da Lua">
+    </div>
+  </section>
+
+  <section class="important-dates">
+    <h2>Datas Importantes</h2>
+    <ul id="importantDates">
+      <li data-date="2024-06-14">14 de junho de 2024 - Início do namoro</li>
+      <li data-date="2024-08-10">10 de agosto de 2024 - Primeiro encontro</li>
+      <li data-date="2024-08-11">11 de agosto de 2024 - Primeira foto juntos</li>
+      <li data-date="2024-11-14">14 de novembro de 2024 - Aniversário dela</li>
+      <li data-date="2024-11-20">20 de novembro de 2024 - Aniversário dele</li>
+      <li data-date="2024-12-25">25 de dezembro de 2024 - Passamos a morar juntos</li>
+      <li data-date="2025-06-14">14 de junho de 2025 - 1 ano de amor</li>
+    </ul>
+  </section>
+
+  <section class="love-message">
+    <p>Enfim, chegamos ao momento pelo qual tanto esperávamos. Apesar das adversidades, completamos nosso primeiro ano. Houve obstáculos, dúvidas, mágoas e todos os sentimentos imagináveis, mas acima de todos eles, o amor e a cumplicidade prevaleceram. É incrível notar nosso esforço mútuo para fazer dar certo, mesmo sendo tão jovens com um objetivo tão admirável.<br><br>
+    Meu amor, posso não ser o homem perfeito, rico ou o mais atraente, mas o amor que sinto por você me faria capaz de absolutamente qualquer coisa para ver um sorriso nesse rosto. Assim como prometi no início: sempre serei seu, dedicado a nós, melhor a cada dia. Te amarei menos que ontem e mais do que amanhã. 💖</p>
+  </section>
+
+  <button onclick="autoPlayTracks()" class="ouvir-tudo">❤️ Ouvir Tudo</button>
+
+  <script>
+    const inicioRelacionamento = new Date("2024-06-14T00:00:00");
+    const contador = document.getElementById("contador");
+    function atualizarContador() {
+      const agora = new Date();
+      const diff = agora - inicioRelacionamento;
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      contador.textContent = `${dias} dias`;
+    }
+    atualizarContador();
+
+    const moonImage = document.getElementById("moonPhaseImage");
+    const hoje = new Date();
+    const diaJuliano = Math.floor((hoje / 86400000) - (hoje.getTimezoneOffset()/1440) + 2440587.5);
+    const fase = (diaJuliano - 2451550.1) / 29.53058867;
+    const faseIndex = Math.floor((fase - Math.floor(fase)) * 8);
+    const fases = ["new", "waxing_crescent", "first_quarter", "waxing_gibbous", "full", "waning_gibbous", "last_quarter", "waning_crescent"];
+    const faseNome = fases[(faseIndex + 8) % 8];
+    moonImage.src = `https://www.astropixels.com/ephemeris/moon/moon${faseNome}.jpg`;
+
+    document.querySelectorAll('#importantDates li').forEach(item => {
+      const data = new Date(item.dataset.date);
+      const julian = Math.floor((data / 86400000) - (data.getTimezoneOffset()/1440) + 2440587.5);
+      const fase = (julian - 2451550.1) / 29.53058867;
+      const idx = Math.floor((fase - Math.floor(fase)) * 8);
+      const emojiMap = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"];
+      item.innerHTML = `${emojiMap[(idx + 8) % 8]} ${item.innerHTML}`;
+    });
+
+    function autoPlayTracks() {
+      const iframes = document.querySelectorAll(".music-player iframe");
+      iframes.forEach(iframe => {
+        iframe.style.display = "block";
+      });
+    }
+  </script>
 </body>
 </html>
