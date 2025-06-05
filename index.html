@@ -9,7 +9,8 @@
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
-      background-color: #fff8f9;
+      background: url('https://i.imgur.com/e8i0u3r.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #333;
       text-align: center;
     }
@@ -21,19 +22,23 @@
       color: #e91e63;
       font-size: 3.2rem;
     }
+    .main-music-section {
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: rgba(255, 248, 249, 0.9);
+      border-radius: 20px;
+      max-width: 600px;
+    }
     .image-main {
       width: 85%;
       max-width: 300px;
       height: auto;
       border-radius: 12px;
-      margin: 1rem auto;
+      margin: 1rem auto 0.5rem;
     }
-    .music-player {
-      margin: 2rem auto;
-      max-width: 400px;
-    }
-    .spotify-player {
-      position: relative;
+    .music-player h2 {
+      color: #d81b60;
+      font-size: 1.5rem;
     }
     .spotify-player iframe {
       width: 100%;
@@ -100,6 +105,8 @@
       background-color: #fdeef2;
       border-radius: 16px;
       max-width: 600px;
+      border: 2px dashed #e91e63;
+      box-shadow: 0 0 10px rgba(233, 30, 99, 0.2);
     }
     .important-dates h2 {
       color: #d81b60;
@@ -111,6 +118,22 @@
     }
     .important-dates li {
       margin: 0.4rem 0;
+      font-size: 1rem;
+      padding: 0.3rem;
+      border-radius: 8px;
+      background: #fff6f9;
+      border: 1px solid #f8bbd0;
+    }
+    .love-message {
+      margin: 2rem auto;
+      max-width: 600px;
+      padding: 1rem;
+      background-color: #fff0f5;
+      border-radius: 20px;
+      font-style: italic;
+      font-size: 1.1rem;
+      border: 1px solid #f48fb1;
+      box-shadow: 0 0 12px rgba(233, 30, 99, 0.1);
     }
   </style>
 </head>
@@ -127,17 +150,18 @@
     </div>
   </section>
 
-  <img src="Imagem%207.jpg" alt="Imagem principal" class="image-main" />
-
-  <section class="music-player">
-    <h2>Músicas para nós</h2>
-    <div class="spotify-player">
-      <iframe id="spotifyFrame" src="about:blank"></iframe>
-      <div class="controls">
-        <button onclick="prevTrack()">◀ Anterior</button>
-        <button onclick="nextTrack()">Próxima ▶</button>
+  <section class="main-music-section">
+    <img src="Imagem%207.jpg" alt="Imagem principal" class="image-main" />
+    <section class="music-player">
+      <h2>Músicas para nós</h2>
+      <div class="spotify-player">
+        <iframe id="spotifyFrame" src="about:blank"></iframe>
+        <div class="controls">
+          <button onclick="prevTrack()">◀ Anterior</button>
+          <button onclick="nextTrack()">Próxima ▶</button>
+        </div>
       </div>
-    </div>
+    </section>
   </section>
 
   <section class="gallery">
@@ -150,15 +174,34 @@
   </section>
 
   <section class="important-dates">
-    <h2>Datas Importantes</h2>
+    <h2>Datas Importantes 🌙</h2>
     <ul>
-      <li>14 de junho de 2024 – Início do namoro</li>
-      <li>10 de agosto de 2024 – Primeiro encontro</li>
-      <li>11 de agosto de 2024 – Primeira foto juntos</li>
-      <li>14 e 20 de novembro de 2024 – Nossos aniversários</li>
-      <li>25 de dezembro de 2024 – Natal: começamos a morar juntos</li>
-      <li>14 de junho de 2025 – Um ano de amor</li>
+      <li>🌑 14 de junho de 2024 – Início do namoro</li>
+      <li>🌒 10 de agosto de 2024 – Primeiro encontro</li>
+      <li>🌓 11 de agosto de 2024 – Primeira foto juntos</li>
+      <li>🌔 14 e 20 de novembro de 2024 – Nossos aniversários</li>
+      <li>🌕 25 de dezembro de 2024 – Natal: começamos a morar juntos</li>
+      <li>🌖 14 de junho de 2025 – Um ano de amor</li>
     </ul>
+  </section>
+
+  <section class="love-message">
+    Kimberly, minha vida linda,
+    <br><br>
+    Ao longo dos dias, tenho descoberto que o amor pode ser mais doce do que eu imaginava, mais profundo do que eu sonhava. Cada sorriso seu acende em mim uma constelação de sentimentos bons, e cada momento ao seu lado é um presente que o universo me deu.
+    <br><br>
+    Desde o instante em que te conheci, meu mundo ganhou cor, música, leveza… Você é meu porto seguro, minha inspiração e minha alegria diária. A cada novo dia, cresce em mim a certeza de que fomos feitos um para o outro.
+    <br><br>
+    O nosso amor é como a lua: passa por fases, mas nunca deixa de brilhar. Em cada fase que vivemos juntos — das mais doces às mais desafiadoras — encontro razões para te admirar ainda mais.
+    <br><br>
+    Criei este pequeno cantinho digital para te lembrar o quanto és amada. Aqui está um pedacinho de nós: nossas músicas, nossas lembranças, nossas fases e nossos sonhos.
+    <br><br>
+    Que esse presente seja uma extensão do meu coração, batendo por ti com ternura e gratidão.
+    <br><br>
+    Te amo hoje, te amarei amanhã e por todos os dias que o tempo permitir.
+    <br><br>
+    Com todo o amor do mundo,<br>
+    Teu Jimmy ❤️
   </section>
 
   <script>
@@ -223,4 +266,3 @@
   </script>
 </body>
 </html>
-
