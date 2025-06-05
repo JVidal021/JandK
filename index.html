@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,6 +12,7 @@
       background-size: cover;
       color: #333;
       text-align: center;
+      overflow-x: hidden;
     }
     header {
       padding: 2rem 1rem;
@@ -93,6 +93,37 @@
       cursor: pointer;
       z-index: 1000;
     }
+    .nav-buttons button {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
+      margin: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .nav-buttons button:hover {
+      background-color: #c2185b;
+    }
+    .heart {
+      position: fixed;
+      color: #e91e63;
+      animation: float 6s infinite;
+      font-size: 1.5rem;
+      z-index: 999;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-800px) scale(1.5);
+        opacity: 0;
+      }
+    }
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -104,38 +135,30 @@
     <h1>O primeiro ano de uma história sem fim</h1>
     <p>Lhe dedico esta página como forma de eternizar o nosso primeiro ano</p>
     <p style="color:#c2185b; font-weight:bold;">"Nunca um sem o outro"</p>
-  </header>
-
-  <section class="main-music-section">
-    <img src="https://raw.githubusercontent.com/JVidal021/JandK/main/images/Imagem%207.jpg" class="image-main" alt="Imagem Principal">
+  </header>  <section class="main-music-section">
+    <img src="./images/imagem7.jpg" class="image-main" alt="Imagem Principal">
     <div class="music-player">
       <h2>Nosso Som</h2>
       <iframe id="spotifyPlayer" style="width:100%; height:152px; border:none; border-radius:12px" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen loading="lazy" src="https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk"></iframe>
-      <div style="margin-top:10px">
-        <button onclick="trocarMusica(-1)">⏮️</button>
-        <button onclick="trocarMusica(1)">⏭️</button>
+      <div class="nav-buttons">
+        <button onclick="trocarMusica(-1)">Anterior</button>
+        <button onclick="trocarMusica(1)">Próxima</button>
       </div>
     </div>
-  </section>
-
-  <section class="gallery">
-  <img src="https://raw.githubusercontent.com/JVidal021/JandK/main/images/Imagem%201.png" alt="Imagem 1">
-  <img src="https://raw.githubusercontent.com/JVidal021/JandK/main/images/Imagem%202.jpg" alt="Imagem 2">
-  <img src="https://raw.githubusercontent.com/JVidal021/JandK/main/images/Imagem%203.jpg" alt="Imagem 3">
-  <img src="https://raw.githubusercontent.com/JVidal021/JandK/main/images/Imagem%204.jpg" alt="Imagem 4">
-  <img src="https://raw.githubusercontent.com/JVidal021/JandK/main/images/Imagem%205.jpg" alt="Imagem 5">
-  <img src="https://raw.githubusercontent.com/JVidal021/JandK/main/images/Imagem%206.jpg" alt="Imagem 6">
-  </section>
-
-  <section class="counter-section">
+  </section>  <section class="gallery">
+    <img src="./images/imagem1.png" alt="Imagem 1">
+    <img src="./images/imagem2.jpg" alt="Imagem 2">
+    <img src="./images/imagem3.jpg" alt="Imagem 3">
+    <img src="./images/imagem4.jpg" alt="Imagem 4">
+    <img src="./images/imagem5.jpg" alt="Imagem 5">
+    <img src="./images/imagem6.jpg" alt="Imagem 6">
+  </section>  <section class="counter-section">
     <h2>Estamos juntos há:</h2>
     <div id="contador" style="font-size: 2rem; font-weight: bold; color:#880e4f;"></div>
     <div class="moon-phase">
       <img id="moonPhaseImage" src="" alt="Fase da Lua">
     </div>
-  </section>
-
-  <section class="important-dates">
+  </section>  <section class="important-dates">
     <h2>Datas Importantes</h2>
     <ul id="importantDates">
       <li data-date="2024-06-14">14 de junho de 2024 - Início do namoro</li>
@@ -146,14 +169,10 @@
       <li data-date="2024-12-25">25 de dezembro de 2024 - Passamos a morar juntos</li>
       <li data-date="2025-06-14">14 de junho de 2025 - 1 ano de amor</li>
     </ul>
-  </section>
-
-  <section class="love-message">
+  </section>  <section class="love-message">
     <p>Enfim, chegamos ao momento pelo qual tanto esperávamos. Apesar das adversidades, completamos nosso primeiro ano. Houve obstáculos, dúvidas, mágoas e todos os sentimentos imagináveis, mas acima de todos eles, o amor e a cumplicidade prevaleceram. É incrível notar nosso esforço mútuo para fazer dar certo, mesmo sendo tão jovens com um objetivo tão admirável.<br><br>
     Meu amor, posso não ser o homem perfeito, rico ou o mais atraente, mas o amor que sinto por você me faria capaz de absolutamente qualquer coisa para ver um sorriso nesse rosto. Assim como prometi no início: sempre serei seu, dedicado a nós, melhor a cada dia. Te amarei menos que ontem e mais do que amanhã. 💖</p>
-  </section>
-
-  <button onclick="autoPlayTracks()" class="ouvir-tudo">❤️ Ouvir Tudo</button>
+  </section><button onclick="autoPlayTracks()" class="ouvir-tudo">❤️ Ouvir Tudo</button>
 
   <script>
     const inicioRelacionamento = new Date("2024-06-14T00:00:00");
@@ -199,6 +218,16 @@
     function autoPlayTracks() {
       document.getElementById("spotifyPlayer").src = `https://open.spotify.com/embed/track/${tracks[currentTrack]}`;
     }
-  </script>
-</body>
+
+    // Emojis de coração flutuando
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = "100vh";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 800);
+  </script></body>
 </html>
