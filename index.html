@@ -9,10 +9,11 @@
     body {
       margin: 0;
       font-family: 'Open Sans', sans-serif;
-      background: url('https://i.imgur.com/e8i0u3r.jpg') no-repeat center center fixed;
+      background: url('https://wallpapers.com/images/hd/your-name-sky-anime-aesthetic-vz5smq5dw79p3nsm.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #333;
       text-align: center;
+      transition: background 1s ease-in-out;
     }
     header {
       padding: 2rem 1rem;
@@ -28,6 +29,7 @@
       background-color: rgba(255, 248, 249, 0.9);
       border-radius: 20px;
       max-width: 600px;
+      animation: fadein 2s ease-in;
     }
     .image-main {
       width: 85%;
@@ -59,6 +61,10 @@
       border-radius: 6px;
       cursor: pointer;
       font-weight: bold;
+      transition: background 0.3s;
+    }
+    .controls button:hover {
+      background-color: #c2185b;
     }
     .gallery {
       display: flex;
@@ -123,6 +129,13 @@
       border-radius: 8px;
       background: #fff6f9;
       border: 1px solid #f8bbd0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .important-dates li img {
+      width: 24px;
+      height: 24px;
     }
     .love-message {
       margin: 2rem auto;
@@ -135,98 +148,18 @@
       border: 1px solid #f48fb1;
       box-shadow: 0 0 12px rgba(233, 30, 99, 0.1);
     }
+    @keyframes fadein {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Para Kimberly</h1>
-  </header>
-
-  <section class="counter-section">
-    <h2>Estamos juntos há:</h2>
-    <div class="counter-number" id="daysTogether">...</div>
-    <div class="moon-phase" id="moonPhase">
-      <img id="moonImage" src="" alt="Fase da lua" />
-    </div>
-  </section>
-
-  <section class="main-music-section">
-    <img src="Imagem%207.jpg" alt="Imagem principal" class="image-main" />
-    <section class="music-player">
-      <h2>Músicas para nós</h2>
-      <div class="spotify-player">
-        <iframe id="spotifyFrame" src="about:blank"></iframe>
-        <div class="controls">
-          <button onclick="prevTrack()">◀ Anterior</button>
-          <button onclick="nextTrack()">Próxima ▶</button>
-        </div>
-      </div>
-    </section>
-  </section>
-
-  <section class="gallery">
-    <img src="Imagem%201.png" alt="Imagem 1" />
-    <img src="Imagem%202.jpg" alt="Imagem 2" />
-    <img src="Imagem%203.jpg" alt="Imagem 3" />
-    <img src="Imagem%204.jpg" alt="Imagem 4" />
-    <img src="Imagem%205.jpg" alt="Imagem 5" />
-    <img src="Imagem%206.jpg" alt="Imagem 6" />
-  </section>
-
-  <section class="important-dates">
-    <h2>Datas Importantes 🌙</h2>
-    <ul>
-      <li>🌑 14 de junho de 2024 – Início do namoro</li>
-      <li>🌒 10 de agosto de 2024 – Primeiro encontro</li>
-      <li>🌓 11 de agosto de 2024 – Primeira foto juntos</li>
-      <li>🌔 14 e 20 de novembro de 2024 – Nossos aniversários</li>
-      <li>🌕 25 de dezembro de 2024 – Natal: começamos a morar juntos</li>
-      <li>🌖 14 de junho de 2025 – Um ano de amor</li>
-    </ul>
-  </section>
-
-  <section class="love-message">
-    Kimberly, minha vida linda,
-    <br><br>
-    Ao longo dos dias, tenho descoberto que o amor pode ser mais doce do que eu imaginava, mais profundo do que eu sonhava. Cada sorriso seu acende em mim uma constelação de sentimentos bons, e cada momento ao seu lado é um presente que o universo me deu.
-    <br><br>
-    Desde o instante em que te conheci, meu mundo ganhou cor, música, leveza… Você é meu porto seguro, minha inspiração e minha alegria diária. A cada novo dia, cresce em mim a certeza de que fomos feitos um para o outro.
-    <br><br>
-    O nosso amor é como a lua: passa por fases, mas nunca deixa de brilhar. Em cada fase que vivemos juntos — das mais doces às mais desafiadoras — encontro razões para te admirar ainda mais.
-    <br><br>
-    Criei este pequeno cantinho digital para te lembrar o quanto és amada. Aqui está um pedacinho de nós: nossas músicas, nossas lembranças, nossas fases e nossos sonhos.
-    <br><br>
-    Que esse presente seja uma extensão do meu coração, batendo por ti com ternura e gratidão.
-    <br><br>
-    Te amo hoje, te amarei amanhã e por todos os dias que o tempo permitir.
-    <br><br>
-    Com todo o amor do mundo,<br>
-    Teu Jimmy ❤️
-  </section>
-
+  <!-- ... HTML continua igual até o final ... -->
   <script>
-    const startDate = new Date('2024-06-14');
-    const now = new Date();
-    const diffTime = now - startDate;
-    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
-    document.getElementById("daysTogether").textContent = `${diffDays} dias`;
+    // ... script existente ...
 
-    const lunarCycle = 29.53;
-    const knownNewMoon = new Date('2024-06-06');
-    const diffMoon = (now - knownNewMoon) / (1000 * 60 * 60 * 24);
-    const phase = diffMoon % lunarCycle;
-
-    let moonPhaseIndex = 0;
-    if (phase < 1.84566) moonPhaseIndex = 0;
-    else if (phase < 5.53699) moonPhaseIndex = 1;
-    else if (phase < 9.22831) moonPhaseIndex = 2;
-    else if (phase < 12.91963) moonPhaseIndex = 3;
-    else if (phase < 16.61096) moonPhaseIndex = 4;
-    else if (phase < 20.30228) moonPhaseIndex = 5;
-    else if (phase < 23.99361) moonPhaseIndex = 6;
-    else if (phase < 27.68493) moonPhaseIndex = 7;
-
-    const moonImages = [
+    const moonPhaseImages = [
       'https://cdn-icons-png.flaticon.com/512/869/869869.png',
       'https://cdn-icons-png.flaticon.com/512/3075/3075977.png',
       'https://cdn-icons-png.flaticon.com/512/3075/3075993.png',
@@ -237,32 +170,28 @@
       'https://cdn-icons-png.flaticon.com/512/3075/3075996.png'
     ];
 
-    document.getElementById("moonImage").src = moonImages[moonPhaseIndex];
+    const moonEmojis = moonPhaseImages.map(img => `<img src="${img}" alt="Lua" />`);
 
-    const tracks = [
-      "https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk",
-      "https://open.spotify.com/embed/track/1bguAEOqZ6UU6Cnljrgn0t",
-      "https://open.spotify.com/embed/track/4t6qMeHgbxWod2SLokiSQp",
-      "https://open.spotify.com/embed/track/5IgjP7X4th6nMNDh4akUHb"
-    ];
-    let currentTrack = -1;
+    document.getElementById("moonImage").src = moonPhaseImages[moonPhaseIndex];
 
-    function updateTrack() {
-      const iframe = document.getElementById("spotifyFrame");
-      iframe.src = `${tracks[currentTrack]}?utm_source=generator`;
-    }
+    // Substituir emojis da lista por imagens
+    const moonList = document.querySelectorAll(".important-dates li");
+    moonList.forEach((li, i) => {
+      if (moonEmojis[i]) {
+        li.innerHTML = `${moonEmojis[i]} ${li.textContent.substring(2)}`;
+      }
+    });
 
-    function nextTrack() {
-      if (currentTrack < 0) currentTrack = 0;
-      else currentTrack = (currentTrack + 1) % tracks.length;
+    // Player automático com timer
+    function autoPlayTracks(index = 0) {
+      if (index >= tracks.length) return;
+      currentTrack = index;
       updateTrack();
+      setTimeout(() => autoPlayTracks(index + 1), 90000); // 90s por faixa
     }
 
-    function prevTrack() {
-      if (currentTrack < 0) currentTrack = tracks.length - 1;
-      else currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
-      updateTrack();
-    }
+    // Iniciar autoPlay automaticamente
+    autoPlayTracks();
   </script>
 </body>
 </html>
