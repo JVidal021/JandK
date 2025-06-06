@@ -1,140 +1,208 @@
-body {
+/* Reset básico */
+* {
   margin: 0;
-  font-family: 'Great Vibes', cursive;
-  color: white;
-  background-color: #000;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fonte romântica */
+body {
+  font-family: 'Great Vibes', cursive, sans-serif;
+  color: #fff;
+  background-color: black;
   overflow-x: hidden;
 }
 
+/* Fundo Your Name */
 .background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('yournamebg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  filter: brightness(0.45);
+  z-index: -1;
+}
+
+/* Efeito de brilho geral */
+body::after {
+  content: '';
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('yourname-bg.jpg') no-repeat center center/cover;
-  filter: brightness(0.4);
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.07), transparent 60%);
+  pointer-events: none;
   z-index: -1;
-  animation: pulse 20s infinite alternate;
-}
 }
 
-@keyframes pulse {
-  0% { filter: brightness(0.4); }
-  100% { filter: brightness(0.6); }
-}
-
-header {
+/* Seções principais */
+section {
+  padding: 4rem 2rem;
   text-align: center;
-  padding: 2rem 1rem;
 }
 
-header h1 {
-  font-size: 2.5rem;
+/* Título */
+h1 {
+  font-size: 3rem;
+  color: #ffd3e0;
   margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px #000;
 }
 
-.counter {
-  text-align: center;
-  font-size: 1.2rem;
-  padding: 1rem;
+/* Texto */
+p {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px #000;
 }
 
-.gallery {
-  display: flex;
-  justify-content: center;
+/* Contador */
+#contador {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-shadow: 1px 1px 2px #000;
+}
+
+/* Galeria tipo roleta */
+.carousel-container {
   overflow: hidden;
-  margin: 2rem 0;
+  width: 100%;
+  margin: 2rem auto;
 }
 
 .carousel {
   display: flex;
-  animation: scroll 14s linear infinite;
+  animation: slide 14s linear infinite;
+  gap: 10px;
 }
 
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+.carousel img {
+  height: 200px;
+  border-radius: 10px;
+  opacity: 0.8;
+  transition: transform 0.3s, opacity 0.3s;
 }
 
-.card {
-  width: 200px;
-  height: 300px;
-  object-fit: cover;
-  margin: 0 0.5rem;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s;
-}
-
-.card:hover {
+.carousel img:hover {
   transform: scale(1.05);
+  opacity: 1;
 }
 
-.music-player {
-  text-align: center;
-  padding: 2rem;
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
-.music-player .main-image {
-  width: 300px;
+/* Player de música */
+.player-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 1rem 2rem;
   border-radius: 20px;
-  margin-bottom: 1rem;
-  box-shadow: 0 0 15px #ff3e96;
+  box-shadow: 0 0 20px rgba(255, 192, 203, 0.3);
+  max-width: 90%;
+  margin-inline: auto;
 }
 
-.player {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1rem;
-  border-radius: 15px;
-  backdrop-filter: blur(8px);
-}
-
-#nextTrack {
-  margin-top: 1rem;
-  padding: 0.5rem 1.5rem;
-  font-size: 1rem;
-  background-color: #ff3e96;
+#spotify-iframe {
+  width: 100%;
+  height: 80px;
   border: none;
-  border-radius: 25px;
-  cursor: pointer;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+/* Botões do player estilo One UI */
+.controls {
+  display: flex;
+  gap: 20px;
+}
+
+.control-button {
+  background: linear-gradient(145deg, #ff6e9d, #ff9bbd);
+  border: none;
   color: white;
-  box-shadow: 0 0 10px #ff3e96;
+  padding: 10px 16px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  font-size: 1.2rem;
+  cursor: pointer;
   transition: transform 0.2s;
 }
 
-#nextTrack:hover {
-  transform: scale(1.1);
+.control-button:hover {
+  transform: scale(1.15);
 }
 
-.calendar {
-  padding: 2rem;
-  text-align: center;
+/* Calendário de datas */
+.date-calendar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem auto;
+  max-width: 1000px;
+  padding: 0 1rem;
 }
 
-.calendar ul {
-  list-style: none;
-  padding: 0;
-}
-
-.calendar li {
-  margin: 0.5rem;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.7rem;
-  border-radius: 12px;
-  transition: background 0.3s;
-}
-
-.calendar li:hover {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-#dateInfo {
-  margin-top: 1rem;
-  font-size: 1rem;
-  color: #ff9ddf;
-  background-color: rgba(0,0,0,0.4);
+.date-box {
+  background-color: rgba(255, 255, 255, 0.08);
   padding: 1rem;
-  border-radius: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+}
+
+.date-box:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Tooltip com descrição do evento */
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: rgba(255,255,255,0.95);
+  color: #000;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 220px;
+  text-align: left;
+  font-size: 0.95rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  z-index: 10;
+}
+
+.show-tooltip {
+  display: block;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .carousel img {
+    height: 150px;
+  }
+
+  .control-button {
+    padding: 8px 14px;
+    font-size: 1rem;
+  }
 }
