@@ -1,87 +1,93 @@
 body {
-    margin: 0;
-    font-family: 'Great Vibes', cursive;
-    background: url('yourname-background.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-}
-.container {
-    max-width: 800px;
-    margin: auto;
-}
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 1rem;
-}
-.texto {
-    font-size: 1.3em;
-    background-color: rgba(0,0,0,0.4);
-    padding: 1rem;
-    border-radius: 10px;
-}
-.frase {
-    display: block;
-    font-size: 1.5em;
-    color: #ff7096;
-    margin-top: 1rem;
-}
-.imagem-principal {
-    position: relative;
-    margin: 2rem auto;
-}
-.imagem-principal img {
-    width: 100%;
-    border-radius: 20px;
-}
-.player {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background: rgba(255,255,255,0.7);
-    padding: 10px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.controls button {
-    background: #ff7096;
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    font-size: 1.5em;
-    margin: 5px;
-    cursor: pointer;
-}
-.galeria {
-    margin: 2rem auto;
-    overflow-x: auto;
-    white-space: nowrap;
-}
-.roleta img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin: 0 5px;
-    border-radius: 15px;
-    border: 3px solid white;
-}
-.contador, .datas-importantes {
-    margin-top: 2rem;
-    font-size: 1.2em;
-}
-.slideshow-container {
-  width: 100%;
-  max-width: 300px;
-  margin: 0 auto;
-  position: relative;
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  background: url('https://wallpapers.com/images/hd/your-name-sky-anime-aesthetic-vz5smq5dw79p3nsm.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+  text-align: center;
+  overflow-x: hidden;
 }
 
-.slide-image {
+header {
+  padding: 2rem 1rem;
+}
+
+h1 {
+  font-family: 'Great Vibes', cursive;
+  color: #e91e63;
+  font-size: 3rem;
+}
+
+.main-music-section {
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: rgba(255, 248, 249, 0.9);
+  border-radius: 20px;
+  max-width: 600px;
+}
+
+.image-main {
   width: 100%;
-  display: none;
+  max-width: 320px;
   border-radius: 12px;
   border: 2px solid #fff;
+  margin-bottom: 1rem;
+}
+
+.gallery {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 10px;
+  padding: 0.5rem;
+}
+
+.gallery img {
+  width: 180px;
+  border-radius: 12px;
+  border: 2px solid #e91e63;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+}
+
+.music-player {
+  margin-top: 1rem;
+}
+
+.nav-buttons button {
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin-top: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.counter-section, .important-dates, .love-message {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 16px;
+}
+
+.moon-phase img {
+  width: 60px;
+  margin-top: 10px;
+}
+
+.important-dates li {
+  margin: 0.5rem 0;
+  background: #fff0f5;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: 1px solid #e91e63;
+}
+
+.love-message p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #880e4f;
 }
