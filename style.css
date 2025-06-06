@@ -1,208 +1,148 @@
-/* Reset básico */
-* {
+body {
+  font-family: 'Great Vibes', cursive;
+  background: #000;
+  color: white;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  overflow-x: hidden;
+  position: relative;
 }
 
-/* Fonte romântica */
-body {
-  font-family: 'Great Vibes', cursive, sans-serif;
-  color: #fff;
-  background-color: black;
+.bg-overlay {
+  background-image: url('yournamebg.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.6);
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: glow 10s infinite alternate;
+}
+
+@keyframes glow {
+  from { filter: brightness(0.6); }
+  to { filter: brightness(0.9); }
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.main-text {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: auto;
+  text-shadow: 1px 1px 3px #000;
+}
+
+.counter {
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 20px 10px;
+}
+
+.calendar-counter span {
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.gallery-section {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
   overflow-x: hidden;
 }
 
-/* Fundo Your Name */
-.background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('yournamebg.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  filter: brightness(0.45);
-  z-index: -1;
-}
-
-/* Efeito de brilho geral */
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.07), transparent 60%);
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Seções principais */
-section {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-/* Título */
-h1 {
-  font-size: 3rem;
-  color: #ffd3e0;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px #000;
-}
-
-/* Texto */
-p {
-  font-size: 1.3rem;
-  max-width: 800px;
-  margin: 0 auto;
-  line-height: 1.6;
-  text-shadow: 1px 1px 2px #000;
-}
-
-/* Contador */
-#contador {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  text-shadow: 1px 1px 2px #000;
-}
-
-/* Galeria tipo roleta */
-.carousel-container {
-  overflow: hidden;
-  width: 100%;
-  margin: 2rem auto;
-}
-
-.carousel {
+.gallery-carousel {
   display: flex;
-  animation: slide 14s linear infinite;
-  gap: 10px;
+  gap: 15px;
+  animation: scrollCards 14s linear infinite;
 }
 
-.carousel img {
-  height: 200px;
+.card {
+  width: 120px;
+  height: 180px;
   border-radius: 10px;
-  opacity: 0.8;
-  transition: transform 0.3s, opacity 0.3s;
+  object-fit: cover;
+  opacity: 0.6;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
 }
 
-.carousel img:hover {
-  transform: scale(1.05);
+.card.active {
+  transform: scale(1.1);
   opacity: 1;
+  border: 3px solid white;
 }
 
-@keyframes slide {
+@keyframes scrollCards {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(-140px); }
 }
 
-/* Player de música */
-.player-container {
+.music-player {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  padding: 30px 0;
+}
+
+.player-ui {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 10px;
+  display: flex;
+  gap: 15px;
   align-items: center;
-  margin-top: 2rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 1rem 2rem;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(255, 192, 203, 0.3);
-  max-width: 90%;
-  margin-inline: auto;
+  backdrop-filter: blur(5px);
 }
 
-#spotify-iframe {
-  width: 100%;
-  height: 80px;
-  border: none;
-  border-radius: 12px;
-  margin-bottom: 1rem;
-}
-
-/* Botões do player estilo One UI */
-.controls {
-  display: flex;
-  gap: 20px;
-}
-
-.control-button {
-  background: linear-gradient(145deg, #ff6e9d, #ff9bbd);
-  border: none;
+.player-ui button {
+  background: #ff69b4;
   color: white;
-  padding: 10px 16px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  border: none;
+  padding: 10px;
   font-size: 1.2rem;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.control-button:hover {
-  transform: scale(1.15);
-}
-
-/* Calendário de datas */
-.date-calendar {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  margin: 3rem auto;
-  max-width: 1000px;
-  padding: 0 1rem;
-}
-
-.date-box {
-  background-color: rgba(255, 255, 255, 0.08);
-  padding: 1rem;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: 0.3s ease;
+}
+
+.player-ui button:hover {
+  background: #ff3366;
+}
+
+.calendar-dates {
   text-align: center;
+  padding: 30px 20px;
+}
+
+.calendar-dates ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.1rem;
+}
+
+.calendar-dates li {
+  margin: 10px 0;
+  cursor: pointer;
+  color: #ffb6c1;
+  transition: 0.2s;
+}
+
+.calendar-dates li:hover {
   color: #fff;
-  box-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+  text-decoration: underline;
 }
 
-.date-box:hover {
-  background-color: rgba(255, 255, 255, 0.15);
-}
-
-/* Tooltip com descrição do evento */
-.tooltip {
-  display: none;
-  position: absolute;
-  background-color: rgba(255,255,255,0.95);
-  color: #000;
-  padding: 1rem;
+#eventDescription {
+  margin-top: 20px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 10px;
   border-radius: 10px;
-  width: 220px;
-  text-align: left;
-  font-size: 0.95rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-  z-index: 10;
-}
-
-.show-tooltip {
-  display: block;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.2rem;
-  }
-
-  .carousel img {
-    height: 150px;
-  }
-
-  .control-button {
-    padding: 8px 14px;
-    font-size: 1rem;
-  }
+  max-width: 400px;
+  margin-inline: auto;
 }
