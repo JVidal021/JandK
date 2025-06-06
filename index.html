@@ -3,124 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para Kimberly</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>O primeiro ano de um amor infinito</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Great Vibes', cursive;
+      color: white;
+      background: url('yournamebg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    .content {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 20px;
+      max-width: 800px;
+    }
+    .player {
+      margin: 30px 0;
+    }
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+    .gallery img {
+      height: 100px;
+      border-radius: 20px;
+      margin: 0 5px;
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+    .important-dates {
+      margin-top: 30px;
+      font-size: 1.2em;
+    }
+    iframe {
+      border: none;
+      border-radius: 20px;
+      margin-top: 10px;
+    }
+    .moon-phase {
+      margin-top: 20px;
+      font-size: 1.5em;
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      .gallery img {
+        height: 70px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>O primeiro ano de uma amor infinito</h1>
-  </header>
+  <h1>O primeiro ano de um amor infinito</h1>
+  <div class="content">
+    <p>
+      Kimberly, você é o sentido por trás de todos os meus dias. Juntos, enfrentamos e vencemos adversidades que pareciam impossíveis. <br/>
+      Você me ensina a ser alguém melhor e desperta em mim a vontade de viver de verdade. <br/>
+      "<strong>Te amarei mais do que ontem e menos do que amanhã</strong>". <br/>
+      Essa é a promessa que renovo a cada amanhecer ao seu lado.
+    </p>
 
-  <section class="main-music-section">
-    <div class="image-and-gallery">
-      <img src="imagem7.jpg" alt="Imagem principal" class="image-main">
-      <div class="gallery" id="gallery">
-        <img src="imagem1.jpg" alt="Foto 1">
-        <img src="imagem2.jpg" alt="Foto 2">
-        <img src="imagem3.jpg" alt="Foto 3">
-        <img src="imagem4.jpg" alt="Foto 4">
-        <img src="imagem5.jpg" alt="Foto 5">
-        <img src="imagem6.jpg" alt="Foto 6">
-      </div>
+    <div class="player">
+      <iframe src="https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <iframe src="https://open.spotify.com/embed/track/1bguAEOqZ6UU6Cnljrgn0t?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <iframe src="https://open.spotify.com/embed/track/4t6qMeHgbxWod2SLokiSQp?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <iframe src="https://open.spotify.com/embed/track/5IgjP7X4th6nMNDh4akUHb?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
     </div>
 
-    <div class="music-player">
-      <h2>Nosso som</h2>
-      <iframe id="spotifyPlayer" style="width:100%; height:152px; border:none; border-radius:12px"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen loading="lazy"
-        src="https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk">
-      </iframe>
-      <div class="nav-buttons">
-        <button onclick="trocarMusica(1)">Próxima Faixa ▶️</button>
-      </div>
+    <div class="gallery">
+      <img src="imagem1.jpg" alt="Imagem 1">
+      <img src="imagem2.jpg" alt="Imagem 2">
+      <img src="imagem3.jpg" alt="Imagem 3">
+      <img src="imagem4.jpg" alt="Imagem 4">
+      <img src="imagem5.jpg" alt="Imagem 5">
+      <img src="imagem6.jpg" alt="Imagem 6">
     </div>
-  </section>
 
-  <section class="counter-section">
-    <h2>Estamos juntos há:</h2>
-    <div id="contador" class="contador-texto"></div>
+    <div class="important-dates">
+      <p>📅 14/06/2024 – Início do namoro 🌕</p>
+      <p>📅 10/08/2024 – Primeiro encontro 🌖</p>
+      <p>📅 11/08/2024 – Primeira foto juntos 🌗</p>
+      <p>📅 14/11/2024 – Aniversário dela 🎂 🌑</p>
+      <p>📅 20/11/2024 – Meu aniversário 🎂 🌒</p>
+      <p>📅 25/12/2024 – Começamos a morar juntos 🎄 🌓</p>
+      <p>📅 14/06/2025 – 1 ano juntos 💞 🌕</p>
+    </div>
+
     <div class="moon-phase">
-      <img id="moonPhaseImage" src="" alt="Fase da Lua">
+      🌙 Fase da lua hoje: <span id="currentMoon">🌔</span>
     </div>
-  </section>
-
-  <section class="important-dates">
-    <h2>Datas Importantes</h2>
-    <ul id="importantDates">
-      <li data-date="2024-06-14">14 de junho de 2024 - Início do namoro</li>
-      <li data-date="2024-08-10">10 de agosto de 2024 - Primeiro encontro</li>
-      <li data-date="2024-08-11">11 de agosto de 2024 - Primeira foto juntos</li>
-      <li data-date="2024-11-14">14 de novembro de 2024 - Aniversário dela</li>
-      <li data-date="2024-11-20">20 de novembro de 2024 - Aniversário dele</li>
-      <li data-date="2024-12-25">25 de dezembro de 2024 - Passamos a morar juntos</li>
-      <li data-date="2025-06-14">14 de junho de 2025 - 1 ano de amor</li>
-    </ul>
-  </section>
-
-  <section class="love-message">
-    <p>Ela é o meu mundo. Após tudo que passamos, superamos o que parecia impossível, e aqui estamos nós. Cada dia ao lado dela me dá vontade de ser melhor e de viver intensamente.<br><br>
-    Te amarei mais do que ontem e menos do que amanhã. 💖</p>
-  </section>
+  </div>
 
   <script>
-    // Contador
-    const inicioRelacionamento = new Date("2024-06-14T00:00:00");
-    const contador = document.getElementById("contador");
-    function atualizarContador() {
-      const agora = new Date();
-      const diff = agora - inicioRelacionamento;
-      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-      contador.textContent = `${dias} dias`;
-    }
-    atualizarContador();
-
-    // Fase da Lua
-    const moonImage = document.getElementById("moonPhaseImage");
-    const hoje = new Date();
-    const diaJuliano = Math.floor((hoje / 86400000) - (hoje.getTimezoneOffset()/1440) + 2440587.5);
-    const fase = (diaJuliano - 2451550.1) / 29.53058867;
-    const faseIndex = Math.floor((fase - Math.floor(fase)) * 8);
-    const fases = ["new", "waxing_crescent", "first_quarter", "waxing_gibbous", "full", "waning_gibbous", "last_quarter", "waning_crescent"];
-    const faseNome = fases[(faseIndex + 8) % 8];
-    moonImage.src = `https://www.astropixels.com/ephemeris/moon/moon${faseNome}.jpg`;
-
-    // Emojis das fases nas datas
-    document.querySelectorAll('#importantDates li').forEach(item => {
-      const data = new Date(item.dataset.date);
-      const julian = Math.floor((data / 86400000) - (data.getTimezoneOffset()/1440) + 2440587.5);
-      const fase = (julian - 2451550.1) / 29.53058867;
-      const idx = Math.floor((fase - Math.floor(fase)) * 8);
-      const emojiMap = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"];
-      item.innerHTML = `${emojiMap[(idx + 8) % 8]} ${item.innerHTML}`;
-    });
-
-    // Galeria automática
-    let galeriaIndex = 0;
-    const galeria = document.getElementById("gallery");
-    const imagens = galeria.querySelectorAll("img");
-
-    setInterval(() => {
-      galeria.scrollTo({
-        left: imagens[galeriaIndex].offsetLeft,
-        behavior: 'smooth'
-      });
-      galeriaIndex = (galeriaIndex + 1) % imagens.length;
-    }, 1000);
-
-    // Spotify player
-    const tracks = [
-      "6usohdchdzW9oML7VC4Uhk",
-      "1bguAEOqZ6UU6Cnljrgn0t",
-      "4t6qMeHgbxWod2SLokiSQp",
-      "5IgjP7X4th6nMNDh4akUHb"
-    ];
-    let currentTrack = 0;
-
-    function trocarMusica(delta) {
-      currentTrack = (currentTrack + delta + tracks.length) % tracks.length;
-      document.getElementById("spotifyPlayer").src = `https://open.spotify.com/embed/track/${tracks[currentTrack]}`;
-    }
+    // Moon phase approximation (static)
+    const today = new Date();
+    const phases = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"];
+    const moonIndex = today.getDate() % 8;
+    document.getElementById("currentMoon").innerText = phases[moonIndex];
   </script>
 </body>
 </html>
