@@ -47,3 +47,14 @@ for (let i = 1; i <= 6; i++) {
         galeria.appendChild(img);
     }
 }
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide-image');
+
+function showSlides() {
+  slides.forEach(slide => slide.style.display = "none");
+  slideIndex = (slideIndex + 1) % slides.length;
+  slides[slideIndex].style.display = "block";
+}
+
+showSlides();
+setInterval(showSlides, 1000);
