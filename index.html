@@ -1,156 +1,192 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Para Kimberly ❤️</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap" rel="stylesheet">
+  <title>O primeiro ano de um amor infinito</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Roboto', sans-serif;
-      background: linear-gradient(to bottom, #fff0f5, #ffe4e1);
-      color: #333;
+      font-family: 'Great Vibes', cursive;
+      background: url('https://i.ibb.co/PgC45Gx/yournamebg.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
       text-align: center;
     }
-    header {
-      background-color: #fff;
-      padding: 20px;
+    .container {
+      padding: 2rem;
     }
     h1 {
-      font-family: 'Great Vibes', cursive;
       font-size: 3rem;
-      color: #e91e63;
+      color: #fcdada;
     }
-    .main-image {
-      width: 90%;
-      max-width: 600px;
-      border-radius: 20px;
-      margin: 20px auto;
+    p {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .player {
+      background: rgba(255,255,255,0.1);
+      border-radius: 2rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      max-width: 400px;
+      margin: 2rem auto;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .player img {
+      border-radius: 1rem;
+      width: 100%;
+    }
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .button {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.3);
+      backdrop-filter: blur(5px);
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .gallery {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 1rem;
+      gap: 1rem;
     }
     .gallery img {
-      width: 100px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 10px;
+      width: 150px;
+      border-radius: 1rem;
+      scroll-snap-align: center;
+      opacity: 0.7;
+      transition: opacity 0.3s;
     }
-    .audio-section {
-      margin: 30px;
+    .gallery img:hover {
+      opacity: 1;
     }
-    audio {
-      display: block;
-      margin: 10px auto;
-    }
-    .love-text {
-      font-family: 'Great Vibes', cursive;
-      font-size: 1.5rem;
-      margin: 40px 20px;
-      color: #c2185b;
-    }
-    .contador-lua {
-      margin-top: 40px;
-    }
-    .contador {
+    .important-dates, .countdown {
+      margin-top: 2rem;
       font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-    .moon-phase {
-      max-width: 150px;
-      margin: 0 auto 20px;
-    }
-    .calendar {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 10px;
-      padding: 20px;
-    }
-    .calendar-day {
-      padding: 10px;
-      background-color: #fff5f8;
-      border: 1px solid #f8bbd0;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .calendar-day:hover {
-      background-color: #fce4ec;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Para Kimberly 💖</h1>
-  </header>  <img src="imagem7.jpg" alt="Imagem principal" class="main-image" />  <div class="gallery">
-    <img src="imagem1.jpg" />
-    <img src="imagem2.jpg" />
-    <img src="imagem3.jpg" />
-    <img src="imagem4.jpg" />
-    <img src="imagem5.jpg" />
-    <img src="imagem6.jpg" />
-    <img src="imagem7.jpg" />
-  </div>  <div class="audio-section">
-    <audio controls>
-      <source src="https://example.com/musica1.mp3" type="audio/mpeg">
-    </audio>
-    <audio controls>
-      <source src="https://example.com/musica2.mp3" type="audio/mpeg">
-    </audio>
-    <audio controls>
-      <source src="https://example.com/musica3.mp3" type="audio/mpeg">
-    </audio>
-  </div>  <div class="love-text">
-    Cada momento contigo é uma lembrança eterna... Obrigado por fazer da minha vida um lugar mais doce, mais colorido e cheio de amor. 💕
-  </div>  <div class="contador-lua">
-    <div class="contador" id="contador-dias"></div>
-    <img id="fase-lua" class="moon-phase" src="" alt="Fase da Lua">
-    <div class="calendar" id="calendario"></div>
-  </div>  <script>
-    const inicioRelacionamento = new Date('2022-02-14');
-    const hoje = new Date();
-    const dias = Math.floor((hoje - inicioRelacionamento) / (1000 * 60 * 60 * 24));
-    document.getElementById('contador-dias').innerText = `Estamos juntos há ${dias} dias! 🌙`;
+  <div class="container">
+    <h1>O primeiro ano de um amor infinito</h1>
+    <p>
+      Em cada detalhe do nosso caminho, encontrei em você não apenas um amor, mas a força que me impulsiona todos os dias. <br>
+      Passamos por desafios que fortaleceram ainda mais o que sentimos, e hoje tenho certeza: você me faz querer ser alguém melhor, viver de forma mais plena e com mais propósito. <br>
+      Te amarei mais do que ontem e menos do que amanhã.
+    </p>
 
-    function faseDaLua(data) {
-      const ano = data.getFullYear();
-      const mes = data.getMonth();
-      const dia = data.getDate();
-      const c = Math.floor((ano - 1900) * 12.3685);
-      const e = new Date(ano, mes, dia);
-      const b = Date.UTC(ano, mes, dia) / 1000 / 86400;
-      const d = (b - 25567.5) / 29.53058867;
-      const fase = d % 1;
-      const indice = Math.floor(fase * 8);
-      const fases = ["new", "waxing_crescent", "first_quarter", "waxing_gibbous", "full", "waning_gibbous", "last_quarter", "waning_crescent"];
-      return fases[indice];
+    <div class="player">
+      <img src="imagem7.jpg" alt="Capa Player" />
+      <audio id="audio" controls style="display: none;"></audio>
+      <div class="controls">
+        <button class="button" onclick="prevTrack()">⏮️</button>
+        <button class="button" onclick="togglePlayPause()" id="playPause">▶️</button>
+        <button class="button" onclick="nextTrack()">⏭️</button>
+      </div>
+    </div>
+
+    <div class="gallery">
+      <img src="imagem1.jpg" alt="Galeria">
+      <img src="imagem2.jpg" alt="Galeria">
+      <img src="imagem3.jpg" alt="Galeria">
+      <img src="imagem4.jpg" alt="Galeria">
+      <img src="imagem5.jpg" alt="Galeria">
+      <img src="imagem6.jpg" alt="Galeria">
+    </div>
+
+    <div class="important-dates">
+      <p>💖 14/06/2024 – Início do namoro 🌔</p>
+      <p>🌸 10/08/2024 – Primeiro encontro 🌓</p>
+      <p>📸 11/08/2024 – Primeira foto 🌔</p>
+      <p>🎂 14/11/2024 – Aniversário dela 🌕</p>
+      <p>🎁 20/11/2024 – Meu aniversário 🌖</p>
+      <p>🎄 25/12/2024 – Começamos a morar juntos 🌑</p>
+      <p>💍 14/06/2025 – Um ano juntos 🌕</p>
+    </div>
+
+    <div class="countdown" id="countdown"></div>
+  </div>
+
+  <script>
+    const musicas = [
+      'https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk',
+      'https://open.spotify.com/embed/track/1bguAEOqZ6UU6Cnljrgn0t',
+      'https://open.spotify.com/embed/track/4t6qMeHgbxWod2SLokiSQp',
+      'https://open.spotify.com/embed/track/5IgjP7X4th6nMNDh4akUHb'
+    ];
+
+    let currentTrack = 0;
+    const audio = document.getElementById('audio');
+    const playPauseBtn = document.getElementById('playPause');
+
+    const playlist = [
+      'https://p.scdn.co/mp3-preview/6c5e9c7c0245c8f12b2ecba5c5f4f1d36c5f06db',
+      'https://p.scdn.co/mp3-preview/1243431e4dd2bda2f486f19462b1c59a50a999ef',
+      'https://p.scdn.co/mp3-preview/3a84f1bdf5f15c63b3641d346af0a86f937d2420',
+      'https://p.scdn.co/mp3-preview/ea0cf1a0db708a594b22e774ba3c3d793bc36d03'
+    ];
+
+    function loadTrack(index) {
+      audio.src = playlist[index];
+      audio.play();
+      playPauseBtn.textContent = '⏸️';
     }
 
-    function atualizarFase(data) {
-      const fase = faseDaLua(data);
-      document.getElementById('fase-lua').src = `https://www.astropixels.com/ephemeris/moon/moonicon/${fase}.png`;
+    function togglePlayPause() {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.textContent = '⏸️';
+      } else {
+        audio.pause();
+        playPauseBtn.textContent = '▶️';
+      }
     }
 
-    atualizarFase(hoje);
-
-    const calendario = document.getElementById("calendario");
-    const hojeData = new Date();
-    const anoAtual = hojeData.getFullYear();
-    const mesAtual = hojeData.getMonth();
-    const diasNoMes = new Date(anoAtual, mesAtual + 1, 0).getDate();
-
-    for (let d = 1; d <= diasNoMes; d++) {
-      const diaDiv = document.createElement("div");
-      diaDiv.className = "calendar-day";
-      diaDiv.textContent = d;
-      diaDiv.addEventListener("click", () => {
-        const dataSelecionada = new Date(anoAtual, mesAtual, d);
-        atualizarFase(dataSelecionada);
-      });
-      calendario.appendChild(diaDiv);
+    function nextTrack() {
+      currentTrack = (currentTrack + 1) % playlist.length;
+      loadTrack(currentTrack);
     }
-  </script></body>
+
+    function prevTrack() {
+      currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+      loadTrack(currentTrack);
+    }
+
+    audio.addEventListener('ended', nextTrack);
+    loadTrack(currentTrack);
+
+    // Contador de dias
+    const startDate = new Date("2024-06-14T00:00:00");
+    const countdownEl = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = now - startDate;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      countdownEl.textContent = `Juntos há ${days} dias e ${hours} horas 🌕`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 3600000);
+  </script>
+</body>
 </html>
+
