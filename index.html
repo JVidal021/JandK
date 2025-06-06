@@ -28,15 +28,23 @@
       border-radius: 20px;
       max-width: 800px;
     }
-    .player {
+    .player-section {
       margin: 30px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .player-image {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 20px;
+      margin-bottom: 10px;
     }
     .spotify-player {
       width: 100%;
       height: 152px;
       border: none;
       border-radius: 20px;
-      display: none;
     }
     .player-controls {
       display: flex;
@@ -57,21 +65,25 @@
     .player-button:hover {
       background: rgba(255, 255, 255, 0.4);
     }
+    .gallery-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      margin: auto;
+      overflow: hidden;
+    }
     .gallery {
       display: flex;
-      overflow-x: scroll;
-      scroll-snap-type: x mandatory;
-      gap: 10px;
-      margin: 20px 0;
+      transition: transform 0.5s ease;
     }
     .gallery img {
-      scroll-snap-align: center;
-      height: 120px;
+      min-width: 100%;
       border-radius: 20px;
-      transition: transform 0.3s;
     }
-    .gallery img:hover {
-      transform: scale(1.1);
+    .gallery-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
     }
     .important-dates {
       margin-top: 30px;
@@ -81,16 +93,13 @@
       margin-top: 30px;
       font-size: 1.5em;
     }
-    .counter {
-      font-size: 1.3em;
+    .counter-section {
       margin-top: 20px;
+      font-size: 1.3em;
     }
     @media (max-width: 600px) {
       h1 {
         font-size: 2em;
-      }
-      .gallery img {
-        height: 70px;
       }
     }
   </style>
@@ -105,23 +114,28 @@
       Essa é a promessa que renovo a cada amanhecer ao seu lado.
     </p>
 
-    <div class="player">
-      <button class="player-button" onclick="startMusic()">▶️ Iniciar música</button>
+    <div class="player-section">
+      <img src="imagem7.jpg" alt="Imagem 7" class="player-image" />
       <iframe id="spotifyEmbed" class="spotify-player" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <div class="player-controls" id="controls" style="display:none">
-        <button class="player-button" onclick="prevTrack()">⏮ Anterior</button>
-        <button class="player-button" onclick="nextTrack()">Próxima ⏭</button>
+      <div class="player-controls">
+        <button class="player-button" onclick="prevTrack()">⏮</button>
+        <button class="player-button" onclick="nextTrack()">⏭</button>
       </div>
     </div>
 
-    <div class="gallery">
-      <img src="imagem1.jpg" alt="Imagem 1">
-      <img src="imagem2.jpg" alt="Imagem 2">
-      <img src="imagem3.jpg" alt="Imagem 3">
-      <img src="imagem4.jpg" alt="Imagem 4">
-      <img src="imagem5.jpg" alt="Imagem 5">
-      <img src="imagem6.jpg" alt="Imagem 6">
-      <img src="imagem7.jpg" alt="Imagem 7">
+    <div class="gallery-wrapper">
+      <div class="gallery" id="gallery">
+        <img src="imagem1.jpg" alt="Imagem 1">
+        <img src="imagem2.jpg" alt="Imagem 2">
+        <img src="imagem3.jpg" alt="Imagem 3">
+        <img src="imagem4.jpg" alt="Imagem 4">
+        <img src="imagem5.jpg" alt="Imagem 5">
+        <img src="imagem6.jpg" alt="Imagem 6">
+      </div>
+      <div class="gallery-buttons">
+        <button class="player-button" onclick="prevImage()">⏮</button>
+        <button class="player-button" onclick="nextImage()">⏭</button>
+      </div>
     </div>
 
     <div class="important-dates">
@@ -135,10 +149,10 @@
     </div>
 
     <div class="moon-phase-section">
-      <div>🌙 <span id="currentMoon"></span></div>
+      🌙 <span id="currentMoon"></span>
     </div>
 
-    <div class="counter" id="daysCounter"></div>
+    <div class="counter-section" id="daysCounter"></div>
   </div>
 
   <script>
@@ -175,10 +189,27 @@
       updateSpotifyEmbed();
     }
 
-    function startMusic() {
-      document.getElementById("spotifyEmbed").style.display = "block";
-      document.getElementById("controls").style.display = "flex";
-      updateSpotifyEmbed();
+    updateSpotifyEmbed();
+
+    const gallery = document.getElementById("gallery");
+    let currentIndex = 0;
+
+    function updateGalleryPosition() {
+      gallery.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextImage() {
+      if (currentIndex < gallery.children.length - 1) {
+        currentIndex++;
+        updateGalleryPosition();
+      }
+    }
+
+    function prevImage() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateGalleryPosition();
+      }
     }
   </script>
 </body>
