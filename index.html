@@ -2,119 +2,61 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>O primeiro ano de um amor infinito</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Great Vibes', cursive;
-      color: white;
-      background: url('yournamebg.jpg') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-    }
-    .content {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      border-radius: 20px;
-      max-width: 800px;
-    }
-    .player {
-      margin: 30px 0;
-    }
-    .gallery {
-      display: flex;
-      overflow-x: auto;
-      margin: 20px 0;
-    }
-    .gallery img {
-      height: 100px;
-      border-radius: 20px;
-      margin: 0 5px;
-      transition: transform 0.3s;
-    }
-    .gallery img:hover {
-      transform: scale(1.1);
-    }
-    .important-dates {
-      margin-top: 30px;
-      font-size: 1.2em;
-    }
-    iframe {
-      border: none;
-      border-radius: 20px;
-      margin-top: 10px;
-    }
-    .moon-phase {
-      margin-top: 20px;
-      font-size: 1.5em;
-    }
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
-      .gallery img {
-        height: 70px;
-      }
-    }
-  </style>
 </head>
 <body>
-  <h1>O primeiro ano de um amor infinito</h1>
-  <div class="content">
+
+  <div class="background"></div>
+
+  <header>
+    <h1>O primeiro ano de um amor infinito</h1>
     <p>
-      Kimberly, você é o sentido por trás de todos os meus dias. Juntos, enfrentamos e vencemos adversidades que pareciam impossíveis. <br/>
-      Você me ensina a ser alguém melhor e desperta em mim a vontade de viver de verdade. <br/>
-      "<strong>Te amarei mais do que ontem e menos do que amanhã</strong>". <br/>
-      Essa é a promessa que renovo a cada amanhecer ao seu lado.
+      Desde o primeiro olhar, tudo mudou. Em meio às dificuldades, fomos a força um do outro. Você me trouxe esperança, alegria e a vontade de ser melhor todos os dias. <br>
+      <strong>Te amarei mais do que ontem e menos do que amanhã.</strong>
     </p>
+  </header>
 
+  <section class="counter">
+    <h2>💗 Estamos juntos há:</h2>
+    <p><strong>357 dias</strong> — <strong>8.568 horas</strong></p>
+  </section>
+
+  <section class="gallery">
+    <div class="carousel">
+      <img src="imagem1.jpg" class="card" />
+      <img src="imagem2.jpg" class="card" />
+      <img src="imagem3.jpg" class="card" />
+      <img src="imagem4.jpg" class="card" />
+      <img src="imagem5.jpg" class="card" />
+      <img src="imagem6.jpg" class="card" onerror="this.style.display='none'" />
+    </div>
+  </section>
+
+  <section class="music-player">
+    <img src="imagem7.jpg" class="main-image" />
     <div class="player">
-      <iframe src="https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <iframe src="https://open.spotify.com/embed/track/1bguAEOqZ6UU6Cnljrgn0t?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <iframe src="https://open.spotify.com/embed/track/4t6qMeHgbxWod2SLokiSQp?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <iframe src="https://open.spotify.com/embed/track/5IgjP7X4th6nMNDh4akUHb?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <iframe id="spotifyPlayer" src="https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk?utm_source=generator" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <button id="nextTrack">⏭️ Próxima faixa</button>
     </div>
+  </section>
 
-    <div class="gallery">
-      <img src="imagem1.jpg" alt="Imagem 1">
-      <img src="imagem2.jpg" alt="Imagem 2">
-      <img src="imagem3.jpg" alt="Imagem 3">
-      <img src="imagem4.jpg" alt="Imagem 4">
-      <img src="imagem5.jpg" alt="Imagem 5">
-      <img src="imagem6.jpg" alt="Imagem 6">
-    </div>
+  <section class="calendar">
+    <h2>🌙 Datas especiais</h2>
+    <ul>
+      <li onclick="showDateInfo('14/06/2024', 'O dia em que tudo começou. Nosso namoro teve início. 🌑 A lua nos marcou com essa fase neste momento.')">14/06/2024</li>
+      <li onclick="showDateInfo('10/08/2024', 'Nosso primeiro encontro. Estávamos nervosos e felizes. 🌓 A lua nos marcou com essa fase neste momento.')">10/08/2024</li>
+      <li onclick="showDateInfo('11/08/2024', 'Nossa primeira foto juntos. ❤️ 🌔 A lua nos marcou com essa fase neste momento.')">11/08/2024</li>
+      <li onclick="showDateInfo('14/11/2024', 'Primeiro aniversário dela que passamos juntos. 🎂 🌕 A lua nos marcou com essa fase neste momento.')">14/11/2024</li>
+      <li onclick="showDateInfo('20/11/2024', 'Meu aniversário, e ela fez tudo ser especial. 🎉 🌖 A lua nos marcou com essa fase neste momento.')">20/11/2024</li>
+      <li onclick="showDateInfo('25/12/2024', 'Nosso primeiro Natal morando juntos. 🎄 🌘 A lua nos marcou com essa fase neste momento.')">25/12/2024</li>
+      <li onclick="showDateInfo('14/06/2025', 'Nosso primeiro ano! Celebrando amor e superação. 🌑 A lua nos marcou com essa fase neste momento.')">14/06/2025</li>
+    </ul>
+    <div id="dateInfo"></div>
+  </section>
 
-    <div class="important-dates">
-      <p>📅 14/06/2024 – Início do namoro 🌕</p>
-      <p>📅 10/08/2024 – Primeiro encontro 🌖</p>
-      <p>📅 11/08/2024 – Primeira foto juntos 🌗</p>
-      <p>📅 14/11/2024 – Aniversário dela 🎂 🌑</p>
-      <p>📅 20/11/2024 – Meu aniversário 🎂 🌒</p>
-      <p>📅 25/12/2024 – Começamos a morar juntos 🎄 🌓</p>
-      <p>📅 14/06/2025 – 1 ano juntos 💞 🌕</p>
-    </div>
-
-    <div class="moon-phase">
-      🌙 Fase da lua hoje: <span id="currentMoon">🌔</span>
-    </div>
-  </div>
-
-  <script>
-    // Moon phase approximation (static)
-    const today = new Date();
-    const phases = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"];
-    const moonIndex = today.getDate() % 8;
-    document.getElementById("currentMoon").innerText = phases[moonIndex];
-  </script>
 </body>
 </html>
