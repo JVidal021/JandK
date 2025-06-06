@@ -3,214 +3,239 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>O primeiro ano de um amor infinito</title>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <title>Para Kimberly</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Great Vibes', cursive;
-      color: white;
-      background: url('yournamebg.jpg') no-repeat center center fixed;
+      font-family: 'Open Sans', sans-serif;
+      background: url('https://wallpapers.com/images/hd/your-name-sky-anime-aesthetic-vz5smq5dw79p3nsm.jpg') no-repeat center center fixed;
       background-size: cover;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      color: #333;
       text-align: center;
-      padding: 20px;
+      overflow-x: hidden;
+    }
+    header {
+      padding: 2rem 1rem;
     }
     h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
+      font-family: 'Great Vibes', cursive;
+      color: #e91e63;
+      font-size: 3.2rem;
     }
-    .content {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      border-radius: 20px;
-      max-width: 800px;
-    }
-    .player-section {
-      margin: 30px 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .player-image {
+    .slideshow-container {
       width: 100%;
       max-width: 300px;
-      border-radius: 20px;
-      margin-bottom: 10px;
-    }
-    .spotify-player {
-      width: 100%;
-      height: 152px;
-      border: none;
-      border-radius: 20px;
-    }
-    .player-controls {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 10px;
-    }
-    .player-button {
-      background: rgba(255, 255, 255, 0.2);
-      border: none;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-size: 1.2em;
-      cursor: pointer;
-      color: white;
-      transition: background 0.3s;
-    }
-    .player-button:hover {
-      background: rgba(255, 255, 255, 0.4);
-    }
-    .gallery-wrapper {
+      margin: 0 auto 1rem;
       position: relative;
+    }
+    .slide-image {
       width: 100%;
-      max-width: 320px;
-      margin: auto;
-      overflow: hidden;
+      display: none;
+      border-radius: 12px;
+      border: 2px solid #fff;
     }
-    .gallery {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-    .gallery img {
-      min-width: 100%;
+    .main-music-section {
+      margin: 0 auto 2rem;
+      padding: 1rem;
+      background-color: rgba(255, 248, 249, 0.9);
       border-radius: 20px;
+      max-width: 600px;
     }
-    .gallery-buttons {
-      display: flex;
-      justify-content: space-between;
+    .music-player {
+      margin-top: 1rem;
+    }
+    .nav-buttons button {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 16px;
       margin-top: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
     }
-    .important-dates {
-      margin-top: 30px;
-      font-size: 1.2em;
+    .nav-buttons button:hover {
+      background-color: #c2185b;
     }
-    .moon-phase-section {
-      margin-top: 30px;
-      font-size: 1.5em;
+    .counter-section, .important-dates, .love-message {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 16px;
     }
-    .counter-section {
-      margin-top: 20px;
-      font-size: 1.3em;
+    .moon-phase img {
+      width: 60px;
     }
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
+    .important-dates li {
+      margin: 0.5rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 1px solid #e91e63;
+      border-radius: 8px;
+      padding: 6px;
+      background: #fff0f5;
+    }
+    .ouvir-tudo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 50px;
+      box-shadow: 0 0 10px rgba(233, 30, 99, 0.6);
+      cursor: pointer;
+      z-index: 1000;
+    }
+    .heart {
+      position: fixed;
+      color: #e91e63;
+      animation: float 6s infinite;
+      font-size: 1.5rem;
+      z-index: 999;
+    }
+    @keyframes float {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-800px) scale(1.5); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <h1>O primeiro ano de um amor infinito</h1>
-  <div class="content">
-    <p>
-      Kimberly, você é o sentido por trás de todos os meus dias. Juntos, enfrentamos e vencemos adversidades que pareciam impossíveis. <br/>
-      Você me ensina a ser alguém melhor e desperta em mim a vontade de viver de verdade. <br/>
-      "<strong>Te amarei mais do que ontem e menos do que amanhã</strong>". <br/>
-      Essa é a promessa que renovo a cada amanhecer ao seu lado.
-    </p>
+  <header>
+    <h1>O primeiro ano de uma história sem fim</h1>
+    <p>Lhe dedico esta página como forma de eternizar o nosso primeiro ano</p>
+    <p style="color:#c2185b; font-weight:bold;">"Nunca um sem o outro"</p>
+  </header>
 
-    <div class="player-section">
-      <img src="imagem7.jpg" alt="Imagem 7" class="player-image" />
-      <iframe id="spotifyEmbed" class="spotify-player" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <div class="player-controls">
-        <button class="player-button" onclick="prevTrack()">⏮</button>
-        <button class="player-button" onclick="nextTrack()">⏭</button>
+  <!-- Slideshow de imagens -->
+  <section class="slideshow-container">
+    <img class="slide-image" src="./images/imagem1.png" alt="Imagem 1">
+    <img class="slide-image" src="./images/imagem2.jpg" alt="Imagem 2">
+    <img class="slide-image" src="./images/imagem3.jpg" alt="Imagem 3">
+    <img class="slide-image" src="./images/imagem4.jpg" alt="Imagem 4">
+    <img class="slide-image" src="./images/imagem5.jpg" alt="Imagem 5">
+    <img class="slide-image" src="./images/imagem6.jpg" alt="Imagem 6">
+    <img class="slide-image" src="./images/imagem7.jpg" alt="Imagem 7">
+  </section>
+
+  <!-- Player de Música -->
+  <section class="main-music-section">
+    <div class="music-player">
+      <h2>Nosso Som</h2>
+      <iframe id="spotifyPlayer" style="width:100%; height:152px; border:none; border-radius:12px" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen loading="lazy" src="https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk"></iframe>
+      <div class="nav-buttons">
+        <button onclick="trocarMusica(1)">Próxima Faixa</button>
       </div>
     </div>
+  </section>
 
-    <div class="gallery-wrapper">
-      <div class="gallery" id="gallery">
-        <img src="imagem1.jpg" alt="Imagem 1">
-        <img src="imagem2.jpg" alt="Imagem 2">
-        <img src="imagem3.jpg" alt="Imagem 3">
-        <img src="imagem4.jpg" alt="Imagem 4">
-        <img src="imagem5.jpg" alt="Imagem 5">
-        <img src="imagem6.jpg" alt="Imagem 6">
-      </div>
-      <div class="gallery-buttons">
-        <button class="player-button" onclick="prevImage()">⏮</button>
-        <button class="player-button" onclick="nextImage()">⏭</button>
-      </div>
+  <!-- Contador + Lua -->
+  <section class="counter-section">
+    <h2>Estamos juntos há:</h2>
+    <div id="contador" style="font-size: 2rem; font-weight: bold; color:#880e4f;"></div>
+    <div class="moon-phase">
+      <img id="moonPhaseImage" src="" alt="Fase da Lua">
     </div>
+  </section>
 
-    <div class="important-dates">
-      <p>📅 14/06/2024 – Início do namoro 🌕</p>
-      <p>📅 10/08/2024 – Primeiro encontro 🌖</p>
-      <p>📅 11/08/2024 – Primeira foto juntos 🌗</p>
-      <p>📅 14/11/2024 – Aniversário dela 🎂 🌑</p>
-      <p>📅 20/11/2024 – Meu aniversário 🎂 🌒</p>
-      <p>📅 25/12/2024 – Começamos a morar juntos 🎄 🌓</p>
-      <p>📅 14/06/2025 – 1 ano juntos 💞 🌕</p>
-    </div>
+  <!-- Datas importantes -->
+  <section class="important-dates">
+    <h2>Datas Importantes</h2>
+    <ul id="importantDates">
+      <li data-date="2024-06-14">14 de junho de 2024 - Início do namoro</li>
+      <li data-date="2024-08-10">10 de agosto de 2024 - Primeiro encontro</li>
+      <li data-date="2024-08-11">11 de agosto de 2024 - Primeira foto juntos</li>
+      <li data-date="2024-11-14">14 de novembro de 2024 - Aniversário dela</li>
+      <li data-date="2024-11-20">20 de novembro de 2024 - Aniversário dele</li>
+      <li data-date="2024-12-25">25 de dezembro de 2024 - Passamos a morar juntos</li>
+      <li data-date="2025-06-14">14 de junho de 2025 - 1 ano de amor</li>
+    </ul>
+  </section>
 
-    <div class="moon-phase-section">
-      🌙 <span id="currentMoon"></span>
-    </div>
+  <!-- Mensagem final -->
+  <section class="love-message">
+    <p>Enfim, chegamos ao momento pelo qual tanto esperávamos. Apesar das adversidades, completamos nosso primeiro ano. Houve obstáculos, dúvidas, mágoas e todos os sentimentos imagináveis, mas acima de todos eles, o amor e a cumplicidade prevaleceram...<br><br>
+    Meu amor, posso não ser o homem perfeito, rico ou o mais atraente, mas o amor que sinto por você me faria capaz de absolutamente qualquer coisa para ver um sorriso nesse rosto. Assim como prometi no início: sempre serei seu, dedicado a nós, melhor a cada dia. Te amarei menos que ontem e mais do que amanhã. 💖</p>
+  </section>
 
-    <div class="counter-section" id="daysCounter"></div>
-  </div>
+  <button onclick="autoPlayTracks()" class="ouvir-tudo">❤️ Ouvir Tudo</button>
 
+  <!-- Scripts -->
   <script>
-    const phases = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"];
-    const today = new Date();
-    const moonIndex = today.getDate() % 8;
-    document.getElementById("currentMoon").innerText = phases[moonIndex];
+    // Contador de dias
+    const inicioRelacionamento = new Date("2024-06-14T00:00:00");
+    function atualizarContador() {
+      const agora = new Date();
+      const diff = agora - inicioRelacionamento;
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById("contador").textContent = `${dias} dias`;
+    }
+    atualizarContador();
 
-    const startDate = new Date("2024-06-14T00:00:00");
-    const now = new Date();
-    const diff = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
-    document.getElementById("daysCounter").innerText = `Já se passaram ${diff} dias desde que começamos a namorar.`;
+    // Fase da lua
+    const moonImage = document.getElementById("moonPhaseImage");
+    const hoje = new Date();
+    const diaJuliano = Math.floor((hoje / 86400000) - (hoje.getTimezoneOffset()/1440) + 2440587.5);
+    const fase = (diaJuliano - 2451550.1) / 29.53058867;
+    const faseIndex = Math.floor((fase - Math.floor(fase)) * 8);
+    const fases = ["new", "waxing_crescent", "first_quarter", "waxing_gibbous", "full", "waning_gibbous", "last_quarter", "waning_crescent"];
+    moonImage.src = `https://www.astropixels.com/ephemeris/moon/moon${fases[(faseIndex + 8) % 8]}.jpg`;
 
+    // Emojis da lua nas datas
+    document.querySelectorAll('#importantDates li').forEach(item => {
+      const data = new Date(item.dataset.date);
+      const julian = Math.floor((data / 86400000) - (data.getTimezoneOffset()/1440) + 2440587.5);
+      const fase = (julian - 2451550.1) / 29.53058867;
+      const idx = Math.floor((fase - Math.floor(fase)) * 8);
+      const emojiMap = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"];
+      item.innerHTML = `${emojiMap[(idx + 8) % 8]} ${item.innerHTML}`;
+    });
+
+    // Spotify Player - troca de faixa
     const tracks = [
-      "6usohdchdzW9oML7VC4Uhk",
-      "1bguAEOqZ6UU6Cnljrgn0t",
-      "4t6qMeHgbxWod2SLokiSQp",
-      "5IgjP7X4th6nMNDh4akUHb"
+      "6usohdchdzW9oML7VC4Uhk", // Lose Control
+      "1bguAEOqZ6UU6Cnljrgn0t", // Ordinary Wedding Version
+      "4t6qMeHgbxWod2SLokiSQp"  // Lied to Do
     ];
     let currentTrack = 0;
 
-    function updateSpotifyEmbed() {
-      const player = document.getElementById("spotifyEmbed");
-      player.src = `https://open.spotify.com/embed/track/${tracks[currentTrack]}`;
+    function trocarMusica(delta) {
+      currentTrack = (currentTrack + delta + tracks.length) % tracks.length;
+      document.getElementById("spotifyPlayer").src = `https://open.spotify.com/embed/track/${tracks[currentTrack]}`;
     }
 
-    function nextTrack() {
-      currentTrack = (currentTrack + 1) % tracks.length;
-      updateSpotifyEmbed();
+    function autoPlayTracks() {
+      document.getElementById("spotifyPlayer").src = `https://open.spotify.com/embed/track/${tracks[currentTrack]}`;
     }
 
-    function prevTrack() {
-      currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
-      updateSpotifyEmbed();
+    // Corações flutuando
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.textContent = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = "100vh";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }, 800);
+
+    // Slideshow automático
+    const slides = document.querySelectorAll('.slide-image');
+    let slideIndex = -1;
+    function showSlides() {
+      slides.forEach(slide => slide.style.display = "none");
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].style.display = "block";
     }
-
-    updateSpotifyEmbed();
-
-    const gallery = document.getElementById("gallery");
-    let currentIndex = 0;
-
-    function updateGalleryPosition() {
-      gallery.style.transform = `translateX(-${currentIndex * 100}%)`;
-    }
-
-    function nextImage() {
-      if (currentIndex < gallery.children.length - 1) {
-        currentIndex++;
-        updateGalleryPosition();
-      }
-    }
-
-    function prevImage() {
-      if (currentIndex > 0) {
-        currentIndex--;
-        updateGalleryPosition();
-      }
-    }
+    showSlides();
+    setInterval(showSlides, 1000);
   </script>
 </body>
 </html>
