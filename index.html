@@ -36,6 +36,7 @@
       height: 152px;
       border: none;
       border-radius: 20px;
+      display: none;
     }
     .player-controls {
       display: flex;
@@ -105,8 +106,9 @@
     </p>
 
     <div class="player">
-      <iframe id="spotifyEmbed" class="spotify-player" src="https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <div class="player-controls">
+      <button class="player-button" onclick="startMusic()">▶️ Iniciar música</button>
+      <iframe id="spotifyEmbed" class="spotify-player" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <div class="player-controls" id="controls" style="display:none">
         <button class="player-button" onclick="prevTrack()">⏮ Anterior</button>
         <button class="player-button" onclick="nextTrack()">Próxima ⏭</button>
       </div>
@@ -139,19 +141,16 @@
   </div>
 
   <script>
-    // Moon phase approximation (static)
-    const today = new Date();
     const phases = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"];
+    const today = new Date();
     const moonIndex = today.getDate() % 8;
     document.getElementById("currentMoon").innerText = phases[moonIndex];
 
-    // Days counter
     const startDate = new Date("2024-06-14T00:00:00");
     const now = new Date();
     const diff = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
     document.getElementById("daysCounter").innerText = `Já se passaram ${diff} dias desde que começamos a namorar.`;
 
-    // Spotify player switching
     const tracks = [
       "6usohdchdzW9oML7VC4Uhk",
       "1bguAEOqZ6UU6Cnljrgn0t",
@@ -161,7 +160,8 @@
     let currentTrack = 0;
 
     function updateSpotifyEmbed() {
-      document.getElementById("spotifyEmbed").src = `https://open.spotify.com/embed/track/${tracks[currentTrack]}`;
+      const player = document.getElementById("spotifyEmbed");
+      player.src = `https://open.spotify.com/embed/track/${tracks[currentTrack]}`;
     }
 
     function nextTrack() {
@@ -171,6 +171,12 @@
 
     function prevTrack() {
       currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+      updateSpotifyEmbed();
+    }
+
+    function startMusic() {
+      document.getElementById("spotifyEmbed").style.display = "block";
+      document.getElementById("controls").style.display = "flex";
       updateSpotifyEmbed();
     }
   </script>
