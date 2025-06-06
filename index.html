@@ -31,15 +31,42 @@
     .player {
       margin: 30px 0;
     }
+    .spotify-player {
+      width: 100%;
+      height: 152px;
+      border: none;
+      border-radius: 20px;
+    }
+    .player-controls {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 10px;
+    }
+    .player-button {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 1.2em;
+      cursor: pointer;
+      color: white;
+      transition: background 0.3s;
+    }
+    .player-button:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
     .gallery {
       display: flex;
-      overflow-x: auto;
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      gap: 10px;
       margin: 20px 0;
     }
     .gallery img {
-      height: 100px;
+      scroll-snap-align: center;
+      height: 120px;
       border-radius: 20px;
-      margin: 0 5px;
       transition: transform 0.3s;
     }
     .gallery img:hover {
@@ -49,14 +76,13 @@
       margin-top: 30px;
       font-size: 1.2em;
     }
-    iframe {
-      border: none;
-      border-radius: 20px;
-      margin-top: 10px;
-    }
-    .moon-phase {
-      margin-top: 20px;
+    .moon-phase-section {
+      margin-top: 30px;
       font-size: 1.5em;
+    }
+    .counter {
+      font-size: 1.3em;
+      margin-top: 20px;
     }
     @media (max-width: 600px) {
       h1 {
@@ -79,10 +105,11 @@
     </p>
 
     <div class="player">
-      <iframe src="https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <iframe src="https://open.spotify.com/embed/track/1bguAEOqZ6UU6Cnljrgn0t?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <iframe src="https://open.spotify.com/embed/track/4t6qMeHgbxWod2SLokiSQp?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-      <iframe src="https://open.spotify.com/embed/track/5IgjP7X4th6nMNDh4akUHb?utm_source=generator" width="100%" height="152" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <iframe id="spotifyEmbed" class="spotify-player" src="https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <div class="player-controls">
+        <button class="player-button" onclick="prevTrack()">⏮ Anterior</button>
+        <button class="player-button" onclick="nextTrack()">Próxima ⏭</button>
+      </div>
     </div>
 
     <div class="gallery">
@@ -104,9 +131,11 @@
       <p>📅 14/06/2025 – 1 ano juntos 💞 🌕</p>
     </div>
 
-    <div class="moon-phase">
-      🌙 Fase da lua hoje: <span id="currentMoon">🌔</span>
+    <div class="moon-phase-section">
+      <div>🌙 <span id="currentMoon"></span></div>
     </div>
+
+    <div class="counter" id="daysCounter"></div>
   </div>
 
   <script>
@@ -115,6 +144,35 @@
     const phases = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"];
     const moonIndex = today.getDate() % 8;
     document.getElementById("currentMoon").innerText = phases[moonIndex];
+
+    // Days counter
+    const startDate = new Date("2024-06-14T00:00:00");
+    const now = new Date();
+    const diff = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
+    document.getElementById("daysCounter").innerText = `Já se passaram ${diff} dias desde que começamos a namorar.`;
+
+    // Spotify player switching
+    const tracks = [
+      "6usohdchdzW9oML7VC4Uhk",
+      "1bguAEOqZ6UU6Cnljrgn0t",
+      "4t6qMeHgbxWod2SLokiSQp",
+      "5IgjP7X4th6nMNDh4akUHb"
+    ];
+    let currentTrack = 0;
+
+    function updateSpotifyEmbed() {
+      document.getElementById("spotifyEmbed").src = `https://open.spotify.com/embed/track/${tracks[currentTrack]}`;
+    }
+
+    function nextTrack() {
+      currentTrack = (currentTrack + 1) % tracks.length;
+      updateSpotifyEmbed();
+    }
+
+    function prevTrack() {
+      currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+      updateSpotifyEmbed();
+    }
   </script>
 </body>
 </html>
