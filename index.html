@@ -1,62 +1,67 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>O primeiro ano de um amor infinito</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet" />
 </head>
 <body>
-
-  <div class="background"></div>
+  <div class="bg-overlay"></div>
 
   <header>
     <h1>O primeiro ano de um amor infinito</h1>
-    <p>
-      Desde o primeiro olhar, tudo mudou. Em meio às dificuldades, fomos a força um do outro. Você me trouxe esperança, alegria e a vontade de ser melhor todos os dias. <br>
-      <strong>Te amarei mais do que ontem e menos do que amanhã.</strong>
+    <p class="main-text">
+      Você é a luz que guia os meus dias, a calma nas minhas tormentas. Enfrentamos o impossível e saímos mais fortes. <br>
+      Com você, tudo tem sentido. <br>
+      <strong>"Te amarei mais do que ontem e menos do que amanhã."</strong>
     </p>
   </header>
 
   <section class="counter">
-    <h2>💗 Estamos juntos há:</h2>
-    <p><strong>357 dias</strong> — <strong>8.568 horas</strong></p>
+    <h2>Estamos juntos há:</h2>
+    <div id="time-together" class="calendar-counter">
+      <span id="days">0</span> dias,
+      <span id="hours">00</span>h :
+      <span id="minutes">00</span>min :
+      <span id="seconds">00</span>s
+    </div>
   </section>
 
-  <section class="gallery">
-    <div class="carousel">
-      <img src="imagem1.jpg" class="card" />
-      <img src="imagem2.jpg" class="card" />
-      <img src="imagem3.jpg" class="card" />
-      <img src="imagem4.jpg" class="card" />
-      <img src="imagem5.jpg" class="card" />
-      <img src="imagem6.jpg" class="card" onerror="this.style.display='none'" />
+  <section class="gallery-section">
+    <div class="gallery-carousel">
+      <img src="imagem7.jpg" alt="Imagem 7" class="card active" />
+      <img src="imagem1.jpg" alt="Imagem 1" class="card" />
+      <img src="imagem2.jpg" alt="Imagem 2" class="card" />
+      <img src="imagem3.jpg" alt="Imagem 3" class="card" />
+      <img src="imagem4.jpg" alt="Imagem 4" class="card" />
+      <img src="imagem5.jpg" alt="Imagem 5" class="card" />
+      <img src="imagem6.jpg" alt="Imagem 6" class="card" />
     </div>
   </section>
 
   <section class="music-player">
-    <img src="imagem7.jpg" class="main-image" />
-    <div class="player">
-      <iframe id="spotifyPlayer" src="https://open.spotify.com/embed/track/6usohdchdzW9oML7VC4Uhk?utm_source=generator" width="100%" height="80" frameBorder="0" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-      <button id="nextTrack">⏭️ Próxima faixa</button>
+    <div class="player-ui">
+      <button id="prevBtn">⏮️</button>
+      <iframe id="spotifyEmbed" src="" width="300" height="80" frameborder="0" allowtransparency="true" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+      <button id="nextBtn">⏭️</button>
     </div>
   </section>
 
-  <section class="calendar">
-    <h2>🌙 Datas especiais</h2>
+  <section class="calendar-dates">
+    <h2>Momentos marcantes ✨</h2>
     <ul>
-      <li onclick="showDateInfo('14/06/2024', 'O dia em que tudo começou. Nosso namoro teve início. 🌑 A lua nos marcou com essa fase neste momento.')">14/06/2024</li>
-      <li onclick="showDateInfo('10/08/2024', 'Nosso primeiro encontro. Estávamos nervosos e felizes. 🌓 A lua nos marcou com essa fase neste momento.')">10/08/2024</li>
-      <li onclick="showDateInfo('11/08/2024', 'Nossa primeira foto juntos. ❤️ 🌔 A lua nos marcou com essa fase neste momento.')">11/08/2024</li>
-      <li onclick="showDateInfo('14/11/2024', 'Primeiro aniversário dela que passamos juntos. 🎂 🌕 A lua nos marcou com essa fase neste momento.')">14/11/2024</li>
-      <li onclick="showDateInfo('20/11/2024', 'Meu aniversário, e ela fez tudo ser especial. 🎉 🌖 A lua nos marcou com essa fase neste momento.')">20/11/2024</li>
-      <li onclick="showDateInfo('25/12/2024', 'Nosso primeiro Natal morando juntos. 🎄 🌘 A lua nos marcou com essa fase neste momento.')">25/12/2024</li>
-      <li onclick="showDateInfo('14/06/2025', 'Nosso primeiro ano! Celebrando amor e superação. 🌑 A lua nos marcou com essa fase neste momento.')">14/06/2025</li>
+      <li onclick="showEvent('2024-06-14', 'Início do nosso namoro', '🌑')">14/06/2024</li>
+      <li onclick="showEvent('2024-08-10', 'Nosso primeiro encontro', '🌒')">10/08/2024</li>
+      <li onclick="showEvent('2024-08-11', 'Nossa primeira foto', '🌓')">11/08/2024</li>
+      <li onclick="showEvent('2024-11-14', 'Aniversário dela juntos', '🌕')">14/11/2024</li>
+      <li onclick="showEvent('2024-11-20', 'Meu aniversário com ela', '🌖')">20/11/2024</li>
+      <li onclick="showEvent('2024-12-25', 'Começamos a morar juntos', '🌗')">25/12/2024</li>
+      <li onclick="showEvent('2025-06-14', '1 ano juntos ❤️', '🌑')">14/06/2025</li>
     </ul>
-    <div id="dateInfo"></div>
+    <div id="eventDescription"></div>
   </section>
-
 </body>
 </html>
